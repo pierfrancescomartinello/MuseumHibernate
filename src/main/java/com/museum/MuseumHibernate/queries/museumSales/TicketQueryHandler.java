@@ -16,14 +16,14 @@ import com.museum.MuseumHibernate.util.Utilities;
 public class TicketQueryHandler {
 	
 	//Adding a ticket to the database
-	public static boolean addTicketQuery(String ticketType, LocalDate visitDate, boolean isUsable, BigDecimal ticketPrice, int visitorId){
+	public static boolean addTicketQuery(String ticketType, LocalDate visitDate, boolean isUsable, BigDecimal ticketPrice, int visitor){
 		try {
 			int ticketId = Utilities.generateId();
 			String url = "jdbc:mysql://localhost/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 			Connection conn = DriverManager.getConnection(url, "root","password");
 			Statement stmn = conn.createStatement();
-			int i = stmn.executeUpdate("INSERT INTO ticket (tickedId, ticketType, visitDate, purchaseDate, isUsable, visitorId, ticketPrice)" +
-									   "VALUES ("+ticketId+" , \""+ticketType+"\" , \'"+ Date.valueOf(visitDate) +"\', \'"+ Date.valueOf(LocalDate.now()) +"\' , \""+(isUsable== true ? 1:0)+"\" , "+visitorId+" , "+ticketPrice+");");
+			int i = stmn.executeUpdate("INSERT INTO ticket (tickedId, ticketType, visitDate, purchaseDate, isUsable, visitor, ticketPrice)" +
+									   "VALUES ("+ticketId+" , \""+ticketType+"\" , \'"+ Date.valueOf(visitDate) +"\', \'"+ Date.valueOf(LocalDate.now()) +"\' , \""+(isUsable== true ? 1:0)+"\" , "+visitor+" , "+ticketPrice+");");
 			stmn.close();
 			return true;
 		}catch(SQLException sqle) {
@@ -38,7 +38,7 @@ public class TicketQueryHandler {
 			String url = "jdbc:mysql://localhost/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 			Connection conn = DriverManager.getConnection(url, "root","password");
 			Statement stmn = conn.createStatement();
-			ResultSet rs = stmn.executeQuery("SELECT * FROM ticket WHERE visitorId = "+visitorId);
+			ResultSet rs = stmn.executeQuery("SELECT * FROM ticket WHERE visitor = "+visitorId);
 			while(rs.next()) {
 				String ticketId = rs.getString("ticketId");
 				String ticketType = rs.getString("ticketType");

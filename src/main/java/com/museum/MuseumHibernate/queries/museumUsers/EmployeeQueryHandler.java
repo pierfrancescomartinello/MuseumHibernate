@@ -20,7 +20,7 @@ public class EmployeeQueryHandler {
 			String url = "jdbc:mysql://localhost/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 			Connection conn = DriverManager.getConnection(url, "root","password");
 			Statement stmn = conn.createStatement();
-			int i = stmn.executeUpdate("INSERT INTO employee (eNome, surname, dateOfBirth, dateOfSignUp, employeeID, workingHours, salary, email) " + "VALUES (\""+ name +"\", \""+ surname +"\", \'"+ Date.valueOf(dateOfBirth) +"\', \'"+ Date.valueOf(dateOfSignUp) +"\', "+ employeeId +", "+ workingHours +", "+ salary +", \""+ email +"\")");
+			int i = stmn.executeUpdate("INSERT INTO employee (fName, surname, dateOfBirth, dateOfSignUp, employeeID, workingHours, salary, email) " + "VALUES (\""+ name +"\", \""+ surname +"\", \'"+ Date.valueOf(dateOfBirth) +"\', \'"+ Date.valueOf(dateOfSignUp) +"\', "+ employeeId +", "+ workingHours +", "+ salary +", \""+ email +"\")");
 			stmn.close();
 			return true;
 		}catch(SQLException sqle) {
@@ -159,7 +159,7 @@ public class EmployeeQueryHandler {
 			Statement stmn = conn.createStatement();
 			ResultSet rs = stmn.executeQuery("SELECT * FROM employee WHERE isCurator = true");
 			while(rs.next()) {
-				String eNome = rs.getString("eNome");
+				String eNome = rs.getString("fName");
 				String cogeNome = rs.getString("surname");
 				System.out.println(eNome + " - " + cogeNome);
 			}
