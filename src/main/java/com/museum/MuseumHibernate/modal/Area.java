@@ -2,20 +2,23 @@ package com.museum.MuseumHibernate.modal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="area")
 public class Area {
+	
 	public Area() {
 		
 	}
 	
-	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="areaid")
-	private int areaId;
+	public int areaId;
 	
 	@Column(name="areaname")
 	private String areaName;

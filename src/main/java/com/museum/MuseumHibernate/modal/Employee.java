@@ -48,13 +48,17 @@ public class Employee {
 	@Column(name="issalesperson")
 	public boolean isSalesperson;
 	
-	@Column(name="salary")
-	public float salary;
+	private float salary;
 	
 	@Column(name="workinghours")
 	public int workingHours;
 	
 	@Column(name="email")
 	public String email;
+	
+	@Column(name="salary")
+	public float getSalary() {
+		return salary;
+	}
 	
 }
