@@ -13,13 +13,13 @@ import com.museum.MuseumHibernate.util.Utilities;
 public class AccountQueryHandler {
 
 	//Adds an account to the Database
-	public static boolean addAccountQuery(String email, String password) throws ClassNotFoundException {
+	public static boolean addAccountQuery(String email, String password){
 		try {
 			String url = "jdbc:mysql://localhost:3306/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 			Connection conn = DriverManager.getConnection(url, "root", "password");
 			Statement stmn = conn.createStatement();
 			int rs = stmn.executeUpdate(
-					"INSERT INTO accountp (email, passwordP) VALUES (\"" + email + "\" , \"" + password + "\");");
+					"INSERT INTO account (email, password) VALUES (\"" + email + "\" , \"" + password + "\");");
 			stmn.close();
 			return true;
 		} catch (SQLException sqle) {

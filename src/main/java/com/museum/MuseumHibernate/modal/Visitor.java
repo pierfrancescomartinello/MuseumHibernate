@@ -11,11 +11,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name="visitor")
 public class Visitor {
-	
-	public Visitor(){
-		
-	}
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="visitorid")

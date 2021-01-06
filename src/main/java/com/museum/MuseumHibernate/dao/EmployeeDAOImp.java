@@ -32,7 +32,7 @@ public class EmployeeDAOImp implements EmployeeDAO {
 		Session currSession = entityManager.unwrap(Session.class);
 		Query<Employee> query = currSession.createQuery("from Employee", Employee.class); 
 		List<Employee> list = query.getResultList();	
-
+		
 		return list;
 	}
 	
