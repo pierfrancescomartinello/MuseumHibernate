@@ -39,4 +39,12 @@ public class AccountServiceImp implements AccountService {
 		accountDao.delete(id);		
 	}
 	
+	@Transactional
+	@Override
+	public List<Account> get(String email) {
+		return accountDao.get(email);
+	}
+	
+	
+	
 }

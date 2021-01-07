@@ -1,6 +1,7 @@
 package com.museum.MuseumHibernate.service;
 
 import java.util.List;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,29 @@ public class TicketServiceImp implements TicketService {
 	@Override
 	public void delete(int id) {
 		ticketDao.delete(id);		
+	}
+		@Transactional
+	@Override
+	public List<Ticket> get(String tickettype) {
+		return ticketDao.get(tickettype);
+	}
+	
+		@Transactional
+	@Override
+	public List<Ticket> get(float ticketprice) {
+		return ticketDao.get(ticketprice);
+	}
+	
+		@Transactional
+	@Override
+	public List<Ticket> get(Date visitdate) {
+		return ticketDao.get(visitdate);
+	}
+	
+		@Transactional
+	@Override
+	public List<Ticket> get(String c, Date purchaseDate) {
+		return ticketDao.get(purchaseDate);
 	}
 	
 }

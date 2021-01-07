@@ -50,4 +50,11 @@ public class AccountController {
 		return account;
 	}
 	
+	@GetMapping("/account/email={email}")
+    public List<Account> get(@PathVariable String email) {
+        return accountService.get(email);	
+    }
+
+  
+	
 }

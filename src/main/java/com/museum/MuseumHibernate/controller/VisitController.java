@@ -1,6 +1,7 @@
 package com.museum.MuseumHibernate.controller;
 
 import java.util.List;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -48,6 +49,16 @@ public class VisitController {
 	public Visit update(@RequestBody Visit visit) {
 		visitService.save(visit);
 		return visit;
+	}
+		
+	@GetMapping("/visit/areaname={areaname}")
+		public List<Visit> getAreaName(@PathVariable String areaname) {
+			return visitService.getAreaName(areaname);
+	}
+	
+		@GetMapping("/visit/visitdate={visitdate}")
+		public List<Visit> get(@PathVariable Date visitdate) {
+			return visitService.get(visitdate);
 	}
 	
 }

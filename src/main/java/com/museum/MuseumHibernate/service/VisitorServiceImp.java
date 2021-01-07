@@ -39,4 +39,16 @@ public class VisitorServiceImp implements VisitorService {
 		visitorDao.delete(id);		
 	}
 	
+	@Transactional
+	@Override
+	public List<Visitor> getName(String name) {
+		return visitorDao.getName(name);
+	}
+	
+	@Transactional
+	@Override
+	public List<Visitor> getSurname(String surname) {
+		return visitorDao.getSurname(surname);
+	}
+	
 }

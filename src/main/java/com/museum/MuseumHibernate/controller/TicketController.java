@@ -1,6 +1,7 @@
 package com.museum.MuseumHibernate.controller;
 
 import java.util.List;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -50,4 +51,25 @@ public class TicketController {
 		return ticket;
 	}
 	
+	@GetMapping("/ticket/tickettype={tickettype}")
+    public List<Ticket> get(@PathVariable String tickettype) {
+        return ticketService.get(tickettype);
+}
+
+
+	@GetMapping("/ticket/ticketprice={ticketprice}")
+    public List<Ticket> get(@PathVariable float ticketprice) {
+        return ticketService.get(ticketprice);
+}
+
+	@GetMapping("/ticket/visitdate={visitdate}")
+    public List<Ticket> get(@PathVariable Date visitdate) {
+        return ticketService.get(visitdate);
+}
+
+	@GetMapping("/ticket/purchaseDate={purchaseDate}")
+    public List<Ticket> get(@PathVariable String c, Date purchaseDate) {
+        return ticketService.get(purchaseDate);
+}
+
 }

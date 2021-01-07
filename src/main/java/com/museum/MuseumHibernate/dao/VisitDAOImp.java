@@ -1,6 +1,7 @@
 package com.museum.MuseumHibernate.dao;
 
 import java.util.List;
+import java.util.Date;
 
 import javax.persistence.EntityManager;
 
@@ -44,5 +45,21 @@ public class VisitDAOImp implements VisitDAO {
 		Session currSession = entityManager.unwrap(Session.class);
 		Visit emp = currSession.get(Visit.class, id);
 		currSession.delete(emp);
+	}
+	
+		@Override
+	public List<Visit> getAreaName(String areaname) {
+		Session currSession = entityManager.unwrap(Session.class);
+		Query<Visit> query = currSession.createNativeQuery("select * from Ticket where name=\"" + areaname + "\"", Visit.class);
+		List<Visit> list= query.getResultList();
+		return list;
+	}
+	
+	@Override
+	public List<Visit> get(Date visitdate) {
+		Session currSession = entityManager.unwrap(Session.class);
+		Query<Visit> query = currSession.createNativeQuery("select * from Ticket where visitdate=\"" + visitdate + "\"", Visit.class);
+		List<Visit> list= query.getResultList();
+		return list;
 	}
 }

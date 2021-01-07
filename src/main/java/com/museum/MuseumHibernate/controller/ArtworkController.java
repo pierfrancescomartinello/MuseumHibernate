@@ -50,4 +50,13 @@ public class ArtworkController {
 		return artwork;
 	}
 	
+	@GetMapping("/artwork/artworkName={artworkName}")
+	public List<Artwork> getArtworkName(@PathVariable String artworkName){
+		return artworkService.getArtworkName(artworkName);
+	}
+	
+	@GetMapping("/artwork/author={author}")
+	public List<Artwork> getArtworkAuthor(@PathVariable String artworkAuthor){
+			return artworkService.getArtworkAuthor(artworkAuthor);
+	}
 }

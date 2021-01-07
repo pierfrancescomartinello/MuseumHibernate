@@ -17,6 +17,18 @@ public class EmployeeServiceImp implements EmployeeService {
 	
 	@Transactional
 	@Override
+	public List<Employee> getAscWorkingHours(){
+		return employeeDao.getAscWorkingHours();
+	}
+	
+	@Transactional
+	@Override
+	public List<Employee> getDescWorkingHours(){
+		return employeeDao.getDescWorkingHours();
+	}
+	
+	@Transactional
+	@Override
 	public List<Employee> get() {
 		return employeeDao.get();
 	}
@@ -44,4 +56,9 @@ public class EmployeeServiceImp implements EmployeeService {
 		employeeDao.delete(id);		
 	}
 	
+	@Transactional
+	@Override
+	public List<Employee> getWorkingHours(int workingHours){
+		return employeeDao.getWorkingHours(workingHours);
+	}
 }

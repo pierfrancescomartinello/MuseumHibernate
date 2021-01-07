@@ -34,8 +34,8 @@ public class AreaController {
 	}
 	
 	@GetMapping("/area/{id}")
-		public Area get(@PathVariable int id) {
-			return areaService.get(id);
+		public List<Area> get(@PathVariable int id) {
+			return areaService.getAreaId(id);
 	}
  
 	@DeleteMapping("/area/{id}")
@@ -50,4 +50,18 @@ public class AreaController {
 		return area;
 	}
 	
+	@GetMapping("/area/areaName={areaName}")
+	public List<Area> getAreaName(@PathVariable String areaName) {
+		return areaService.getAreaName(areaName);
+	}
+	
+	@GetMapping("/area/areaStyle={areaStyle}")
+	public List<Area> getAreaStyle(@PathVariable String areaStyle){
+		return areaService.getAreaStyle(areaStyle);
+	}
+	
+	@GetMapping("/area/areaCuratorId={areaCuratorId}")
+	public List<Area> getAreaCuratorId(@PathVariable String areaCuratorId){
+		return areaService.getAreaCuratorId(areaCuratorId);
+	}
 }

@@ -39,4 +39,15 @@ public class ArtworkServiceImp implements ArtworkService {
 		artworkDao.delete(id);		
 	}
 	
+	@Transactional
+	@Override
+	public List<Artwork> getArtworkName(String artworkName){
+		return artworkDao.getArtworkName(artworkName);
+	}
+	
+	@Transactional
+	@Override
+	public List<Artwork> getArtworkAuthor(String artworkAuthor){
+		return artworkDao.getArtworkAuthor(artworkAuthor);
+	}
 }

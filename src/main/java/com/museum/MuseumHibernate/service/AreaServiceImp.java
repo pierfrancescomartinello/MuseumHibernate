@@ -23,8 +23,20 @@ public class AreaServiceImp implements AreaService {
 
 	@Transactional
 	@Override
-	public Area get(int id) {
-		return areaDao.get(id);
+	public List<Area> getAreaId(int id) {
+		return areaDao.getAreaId(id);
+	}
+	
+	@Transactional
+	@Override
+	public List<Area> getAreaName(String areaName){
+		return areaDao.getAreaName(areaName);
+	}
+	
+	@Transactional
+	@Override
+	public List<Area> getAreaStyle(String areaStyle){
+		return areaDao.getAreaStyle(areaStyle);
 	}
 
 	@Transactional
@@ -36,7 +48,12 @@ public class AreaServiceImp implements AreaService {
 	@Transactional
 	@Override
 	public void delete(int id) {
-		areaDao.delete(id);		
-	}
+		areaDao.delete(id);
+	}	
 	
+	@Transactional
+	@Override
+	public List<Area> getAreaCuratorId(String areaCuratorId){
+		return areaDao.getAreaCuratorId(areaCuratorId);
+	}
 }

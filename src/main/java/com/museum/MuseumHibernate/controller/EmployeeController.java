@@ -41,8 +41,8 @@ public class EmployeeController {
 	@GetMapping("/employee/name={name}")
 	public List<Employee> get(@PathVariable String name) {
 		return employeeService.get(name);
-}
- 
+	}
+ 	
 	@DeleteMapping("/employee/{id}")
 	public String delete(@PathVariable int id) {
 		employeeService.delete(id);
@@ -55,4 +55,18 @@ public class EmployeeController {
 		return employee;
 	}
 	
+	@GetMapping("/employee/workingHours={workingHours}")
+	public List<Employee> getWorkingHours(int workingHours){
+		return employeeService.getWorkingHours(workingHours);
+	}
+	
+	@GetMapping("/employee/workingHours/asc")
+	public List<Employee> getAscWorkingHours(){
+		return employeeService.getAscWorkingHours();
+	}
+	
+	@GetMapping("/employee/workingHours/des")
+	public List<Employee> getDescWorkingHours(){
+		return employeeService.getDescWorkingHours();	
+	}
 }

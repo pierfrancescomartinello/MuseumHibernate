@@ -8,6 +8,8 @@ import com.museum.MuseumHibernate.service.ArtworkService;
 public interface ArtworkService {
 	List<Artwork> get();
 	Artwork get(int id);
+	List<Artwork> getArtworkName(String artworkName);
 	void save(Artwork artwork);
- 	void delete(int id);
+ 	void delete(int id);	
+	List<Artwork> getArtworkAuthor(String artworkName);
 }

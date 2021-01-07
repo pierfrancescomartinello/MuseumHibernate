@@ -45,4 +45,22 @@ public class VisitorDAOImp implements VisitorDAO {
 		Visitor emp = currSession.get(Visitor.class, id);
 		currSession.delete(emp);
 	}
+	
+	@Override
+	public List<Visitor> getName(String name) {
+		Session currSession = entityManager.unwrap(Session.class);
+		Query<Visitor> query = currSession.createNativeQuery("select * from Ticket where name=\"" + name + "\"", Visitor.class);
+		List<Visitor> list= query.getResultList();
+		return list;
+	}
+	
+	@Override
+	public List<Visitor> getSurname(String surname) {
+		Session currSession = entityManager.unwrap(Session.class);
+		Query<Visitor> query = currSession.createNativeQuery("select * from Ticket where surname=\"" + surname + "\"", Visitor.class);
+		List<Visitor> list= query.getResultList();
+		return list;
+	}
+	
+	
 }

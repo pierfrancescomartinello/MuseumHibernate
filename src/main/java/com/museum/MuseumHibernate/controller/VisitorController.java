@@ -50,4 +50,15 @@ public class VisitorController {
 		return visitor;
 	}
 	
+	
+	@GetMapping("/visitor/name={name}")
+		public List<Visitor> getName(@PathVariable String name) {
+			return visitorService.getName(name);
+	}
+	
+	@GetMapping("/visitor/surname={surname}")
+		public List<Visitor> getSurname(@PathVariable String surname) {
+			return visitorService.getSurname(surname);
+	}
+	
 }

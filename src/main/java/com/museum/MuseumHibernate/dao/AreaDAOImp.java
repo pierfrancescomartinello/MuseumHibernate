@@ -27,11 +27,13 @@ public class AreaDAOImp implements AreaDAO {
 	}
 	
 	@Override
-	 public Area get(int id) {
-	  Session currSession = entityManager.unwrap(Session.class);
-	  Area emp = currSession.get(Area.class, id);
-	  return emp;
-	 }
+	public List<Area> getAreaId(int id) {
+		Session currSession = entityManager.unwrap(Session.class);
+		Query<Area> query = currSession.createNativeQuery("SELECT * FROM area WHERE areaId = "+ id +";" , Area.class);
+		List<Area> list = query.getResultList();
+		return list;
+	}
+	
 	
 	@Override
 	public void save(Area area) {
@@ -44,5 +46,32 @@ public class AreaDAOImp implements AreaDAO {
 		Session currSession = entityManager.unwrap(Session.class);
 		Area emp = currSession.get(Area.class, id);
 		currSession.delete(emp);
+	}
+	
+	@Override
+	public List<Area> getAreaName(String areaName){
+		Session currSession = entityManager.unwrap(Session.class);
+		Query<Area> query = currSession.createNativeQuery("SELECT * FROM area WHERE areaName = "+ areaName + ";", Area.class);
+		List<Area> list = query.getResultList();
+		
+		return list;
+	}
+	
+	@Override
+	public List<Area> getAreaStyle(String areaStyle){
+		Session currSession = entityManager.unwrap(Session.class);
+		Query<Area> query = currSession.createNativeQuery("SELECT * FROM area WHERE areaStyle = \"" + areaStyle + ";", Area.class);
+		List<Area> list = query.getResultList();
+		
+		return list;
+	}
+	
+	@Override
+	public List<Area> getAreaCuratorId(String areaCuratorId){
+		Session currSession = entityManager.unwrap(Session.class);
+		Query<Area> query = currSession.createNativeQuery("SELECT * FROM area WHERE areaCuratorId = " + areaCuratorId + ";", Area.class);
+		List<Area> list = query.getResultList();
+		
+		return list;
 	}
 }

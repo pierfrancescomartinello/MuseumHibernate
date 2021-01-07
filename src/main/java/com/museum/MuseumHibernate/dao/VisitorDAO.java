@@ -9,4 +9,7 @@ public interface VisitorDAO {
 	 Visitor get(int id);
 	 void save(Visitor visitor);
 	 void delete(int id);
+	 List<Visitor> getName(String name);
+	 List<Visitor> getSurname(String surname);
 }
+

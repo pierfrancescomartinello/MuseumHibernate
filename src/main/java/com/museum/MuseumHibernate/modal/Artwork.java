@@ -37,6 +37,9 @@ public class Artwork {
 	@Column(name="areaname")
 	private String areaName;
 	
+	@Column(name="areaid")
+	private String areaId;
+	
 	@Override
 	public String toString() {
 		return "Artwork " + name + " " + author + " " + date + " " + simpleDescription + " " + completeDescription + " " + areaName;

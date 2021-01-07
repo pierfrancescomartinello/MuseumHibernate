@@ -1,6 +1,7 @@
 package com.museum.MuseumHibernate.service;
 
 import java.util.List;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,18 @@ public class VisitServiceImp implements VisitService {
 	@Override
 	public void delete(int id) {
 		visitDao.delete(id);		
+	}
+	
+	@Transactional
+	@Override
+	public List<Visit> getAreaName(String areaname) {
+		return visitDao.getAreaName(areaname);
+	}
+	
+	@Transactional
+	@Override
+	public List<Visit> get(Date visitdate) {
+		return visitDao.get(visitdate);
 	}
 	
 }
