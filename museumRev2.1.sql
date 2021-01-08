@@ -36,7 +36,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES ('ciaociao@youunipa.it','ciaociao',0),('pippofranco@unipa.it','pastaefagioli',0),('sdfefjsefjwejnwfe.it','ciaociao',0),('turbosuca@unipa.it','sucamaturbo',0),('unanuovaemail@you.unipa.it',NULL,NULL);
+INSERT INTO `account` VALUES ('Alelame@gmail.com','IlGustoDellOrrido1010',0),('AurelianoAdami@gmail.com','vemenamoforte',0),('BippoBaudoReal@gmail.com','AHAHAHHAHAHAHA',1),('Bm3t@gmail.com','99999999999',0),('ciaociao@youunipa.it','ciaociao',0),('interistasbarazzino00','robehrobeh',0),('mar280499@gmail.com','passwordbella',0),('mikeracc@gmail.com','iosonobatman',0),('pierframarti@gmail.com','KONODIODA',0),('pippofranco@unipa.it','pastaefagioli',0),('sdfefjsefjwejnwfe.it','ciaociao',0),('StatesSchool@gmail.com','18611865',0),('themessiah99@gmail.com','sonoubriaco',0),('TheRealJesus@gmail.com','sonoubriacoreal',1),('turbosuca@unipa.it','sucamaturbo',0),('unanuovaemail@you.unipa.it',NULL,NULL);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,7 +56,7 @@ CREATE TABLE `area` (
   PRIMARY KEY (`areaId`),
   KEY `areaCurator` (`areaCuratorID`),
   CONSTRAINT `areaCurator` FOREIGN KEY (`areaCuratorID`) REFERENCES `employee` (`employeeid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `area` (
 
 LOCK TABLES `area` WRITE;
 /*!40000 ALTER TABLE `area` DISABLE KEYS */;
-INSERT INTO `area` VALUES (3,'ciao','ciaesimo',4,0);
+INSERT INTO `area` VALUES (1,'Barocca','Barocco',199,0),(2,'John Wick','Marocco',NULL,0),(3,'ciao','ciaesimo',4,0),(4,'Jotaro','JoJo',NULL,1),(5,'Quinta','Impressionante',NULL,1);
 /*!40000 ALTER TABLE `area` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `artwork` (
   PRIMARY KEY (`artworkId`),
   KEY `location` (`areaId`),
   CONSTRAINT `location` FOREIGN KEY (`areaId`) REFERENCES `area` (`areaId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `artwork` (
 
 LOCK TABLES `artwork` WRITE;
 /*!40000 ALTER TABLE `artwork` DISABLE KEYS */;
-INSERT INTO `artwork` VALUES (1,'beppe','we','2021-03-01','we','we',NULL),(2,'we','we','2020-03-04','dokefe','erfererg',NULL);
+INSERT INTO `artwork` VALUES (1,'beppe','we','2021-03-01','we','we',NULL),(2,'we','we','2020-03-04','dokefe','erfererg',NULL),(15,'Impressione','Anonimo','15.287878787818181818','Una persona impressionata',NULL,5);
 /*!40000 ALTER TABLE `artwork` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,7 +123,7 @@ CREATE TABLE `employee` (
   UNIQUE KEY `employeeId` (`employeeid`),
   KEY `emailE` (`email`),
   CONSTRAINT `emailE` FOREIGN KEY (`email`) REFERENCES `account` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1011 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +132,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES ('palla','palle','2021-01-04','2021-01-04',0,0,4,0,0,0,'unanuovaemail@you.unipa.it'),('palla','palle','2021-01-04',NULL,0,0,5,0,0,0,'ciaociao@youunipa.it'),('pippo','franco','2021-01-04','2021-01-04',0,0,6,0,0,0,'pippofranco@unipa.it');
+INSERT INTO `employee` VALUES ('Giuseppe','Termerissa','1999-12-25','2018-01-01',0,1,1,10000,1,0,'TheRealJesus@gmail.com'),('palla','palle','2021-01-04','2021-01-04',0,0,4,0,0,0,'unanuovaemail@you.unipa.it'),('palla','palle','2021-01-04',NULL,0,0,5,0,0,0,'ciaociao@youunipa.it'),('pippo','franco','2021-01-04','2021-01-04',0,0,6,0,0,0,'pippofranco@unipa.it'),('Simone','Turbante','1978-10-10','2018-01-01',1,0,199,2000,8,0,'Themessiah99@gmail.com'),('Bippo','Baudo','1978-10-10','2018-01-01',0,0,1010,1900,0,1,'BippoBaudoReal@gmail.com');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,7 +167,7 @@ CREATE TABLE `ticket` (
   PRIMARY KEY (`ticketId`),
   KEY `ticketOwner` (`visitor`),
   CONSTRAINT `ticketOwner` FOREIGN KEY (`visitor`) REFERENCES `visitor` (`visitorid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2312 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,6 +176,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
+INSERT INTO `ticket` VALUES (2310,'Adult','2021-02-01','2020-12-27',1,9,8.99),(2311,'Adult','2021-02-01','2020-12-27',1,6,8.99);
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +198,7 @@ CREATE TABLE `visitor` (
   PRIMARY KEY (`visitorid`),
   KEY `emailV` (`email`),
   CONSTRAINT `emailV` FOREIGN KEY (`email`) REFERENCES `account` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,7 +207,7 @@ CREATE TABLE `visitor` (
 
 LOCK TABLES `visitor` WRITE;
 /*!40000 ALTER TABLE `visitor` DISABLE KEYS */;
-INSERT INTO `visitor` VALUES ('wefgewgwee','ffhdfd','2020-01-05','2020-01-05',0,10,'turbosuca@unipa.it');
+INSERT INTO `visitor` VALUES ('Matteo','Bellavia','1998-08-27','2020-07-01',1,6,'Bm3t@gmail.com'),('Marco','Marrone','1999-04-28','2020-01-02',1,9,'mar280499@gmail.com'),('wefgewgwee','ffhdfd','2020-01-05','2020-01-05',0,10,'turbosuca@unipa.it'),('Michele','Raccuglia','1999-09-11','2020-01-02',1,11,'mikeracc@gmail.com'),('Pierfrancesco','Martinello','2000-05-11','2020-01-02',1,12,'pierframarti@gmail.com'),('Alessandro','Lame','2001-10-11','2019-10-11',1,20,'Alelame@gmail.com'),('Aureliano','Adami','1984-05-20','2020-01-01',1,34,'AurelianoAdami@gmail.com'),('Daniel','Smith','1968-11-01','2019-11-02',1,91,'StatesSchool@gmail.com');
 /*!40000 ALTER TABLE `visitor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -237,4 +238,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-06 11:44:16
+-- Dump completed on 2021-01-07 13:03:24
