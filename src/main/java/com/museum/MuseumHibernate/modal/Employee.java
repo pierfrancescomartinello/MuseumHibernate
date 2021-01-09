@@ -27,7 +27,7 @@ public class Employee {
 	@Column(name="employeeid")
 	public int employeeId;
 	
-	@Column(name="fname")
+	@Column(name="name")
 	public String name;
 	
 	@Column(name="surname")

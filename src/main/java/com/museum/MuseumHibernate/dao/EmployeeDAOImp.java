@@ -28,6 +28,24 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	*/
 	
 	@Override
+	public List<Employee> getAscWorkingHours(){
+		Session currSession = entityManager.unwrap(Session.class);
+		Query<Employee> query = currSession.createNativeQuery("Select * from From employee order by workingHours Asc;");
+		List<Employee> list = query.getResultList();
+		
+		return list;
+	}
+	
+	@Override
+	public List<Employee> getDescWorkingHours(){
+		Session currSession = entityManager.unwrap(Session.class);
+		Query<Employee> query = currSession.createNativeQuery("Select * from From employee order by workingHours Desc;");
+		List<Employee> list = query.getResultList();
+		
+		return list;
+	}
+	
+	@Override
 	public List<Employee> get() {
 		Session currSession = entityManager.unwrap(Session.class);
 		Query<Employee> query = currSession.createQuery("from Employee", Employee.class); 

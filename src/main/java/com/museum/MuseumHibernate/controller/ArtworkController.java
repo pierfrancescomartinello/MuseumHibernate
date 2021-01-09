@@ -56,7 +56,7 @@ public class ArtworkController {
 	}
 	
 	@GetMapping("/artwork/author={author}")
-	public List<Artwork> getArtworkAuthor(@PathVariable String artworkAuthor){
-			return artworkService.getArtworkAuthor(artworkAuthor);
+	public List<Artwork> getArtworkAuthor(@PathVariable String author){
+			return artworkService.getArtworkAuthor(author);
 	}
 }

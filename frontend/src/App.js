@@ -1,21 +1,45 @@
 import React, { Component } from "react";
-import AddEmployee from "./Components/AddEmployee";
 import { Route, BrowserRouter as Router } from "react-router-dom";
-import Table from "./Components/Table";
-import SignIn from "./Components/SignIn";
+import AddEmployee from "./pages/AddEmployee";
+import AppBar from "./components/AppBar";
+import EmployeesTable from "./pages/EmployeesTable";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Home from "./pages/Home";
+import Pricing from "./pages/Pricing";
 
-class App extends Component {
-  render() {
-    return (
-      <SignIn />
-      /*
-      <Router>
-        <Route exact path="/" component={AddEmployee} />
-        <Route exact path="/view" component={Table} />
-      </Router>
-      */
-    );
-  }
+export default function App() {
+	return (
+		<Router>
+			<div >
+				<AppBar />
+				<Route path="/" exact component={Home} />
+				<Route path="/tickets" exact component={Pricing} />
+				<Route path="/employees" exact component={EmployeesTable} />
+				<Route path="/addemployees" exact component={AddEmployee} />
+				<Route path="/login" exact component={Login} />
+				<Route path="/signup" exact component={Signup} />
+
+			</div>			
+		</Router>
+	);
 }
 
-export default App;
+/*
+class App extends Component {
+	render() {
+		return (
+			[
+				<Router key="router">
+				<AppBar key="appbar" />
+				<Home />
+				<Route exact path="/" component={AddEmployee} />
+				<Route exact path="/employees" component={EmployeesTable} />
+				<Route exact path="/signup" component={Signup} />
+				<Route exact path="/tickets" component={Pricing} />
+				</Router>
+			]
+		);
+	}
+}
+*/

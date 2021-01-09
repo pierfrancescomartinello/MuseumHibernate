@@ -38,7 +38,7 @@ public class Director extends EmployeeDecorator{
 	
 	//Shows all the employees
 	public ArrayList<Employee> showAllEmployees(){
-		return EmployeeQueryHandler.EmployeeQueryDataHandler();
+		return EmployeeQueryHandler.employeeQueryDataHandler();
 	}
 	
 	//Shows all the curators

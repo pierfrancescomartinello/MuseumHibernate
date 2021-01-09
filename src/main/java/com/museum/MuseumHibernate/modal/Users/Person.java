@@ -91,13 +91,13 @@ public abstract class Person{
 
 	public static boolean logIn(String email, String password){
 		if(password.equals(AccountQueryHandler.getPasswordQuery(email))){
-			return AccountQueryHandler.modifyIsLoggedInStateQuery(email, true);
+			return AccountQueryHandler.modifyIsLoggedInStateQuery(email, 1);
 		}
 		return false;
 	}
 	
 
 	public static void logOut(String email){
-		AccountQueryHandler.modifyIsLoggedInStateQuery(email, false);
+		AccountQueryHandler.modifyIsLoggedInStateQuery(email, 0);
 	}
 }

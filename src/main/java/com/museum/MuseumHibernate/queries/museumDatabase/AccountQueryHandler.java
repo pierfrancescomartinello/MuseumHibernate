@@ -41,6 +41,24 @@ public class AccountQueryHandler {
 			return "";
 		}
 	}
+	
+	//Checks if that email is in the database
+	public static boolean checkEmailQuery(String email){
+		try {
+			String url = "jdbc:mysql://localhost/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+			Connection conn = DriverManager.getConnection(url, "root", "password");
+			Statement stmn = conn.createStatement();
+			ResultSet rs = stmn.executeQuery("SELECT email FROM account WHERE email = \"" + email + "\";");
+			
+			if(rs.getString("email") == "")
+				return false;
+			return true;
+			
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			return false;
+		}
+	}
 
 	//Modifies an account's password
 	public static boolean modifyPasswordQuery(String email, String oldPassword, String newPassword) {
@@ -83,12 +101,12 @@ public class AccountQueryHandler {
 	}
 
 	//Sets isLoggedIn of an account
-	public static boolean modifyIsLoggedInStateQuery(String email, boolean value) {
+	public static boolean modifyIsLoggedInStateQuery(String email, int value) {
 		try {
 			String url = "jdbc:mysql://localhost/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 			Connection conn = DriverManager.getConnection(url, "root", "password");
 			Statement stmn = conn.createStatement();
-			int i = stmn.executeUpdate("UPDATE accountP SET isLoggedIn= " + value + " WHERE email = \"" + email + "\";");
+			int i = stmn.executeUpdate("UPDATE accountP SET isLoggedIn= " +value+ " WHERE email = \"" + email + "\";");
 			stmn.close();
 			return true;
 		} catch (SQLException sqle) {

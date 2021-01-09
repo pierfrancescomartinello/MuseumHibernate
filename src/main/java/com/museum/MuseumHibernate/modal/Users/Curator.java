@@ -23,7 +23,7 @@ public class Curator extends EmployeeDecorator{
 			}
 		}
 	}
-
+/*
 	public void curatorSetArea(Artwork artworkToModify, Area newArea){
 		if(this.assignedAreas.contains(artworkToModify.getArea())){
 			artworkToModify.setArea(newArea.getAreaName());
@@ -50,5 +50,5 @@ public class Curator extends EmployeeDecorator{
 			artworkToModify.setCompleteDescription(completeDescription);
 		}
 	}
-
+*/
 }

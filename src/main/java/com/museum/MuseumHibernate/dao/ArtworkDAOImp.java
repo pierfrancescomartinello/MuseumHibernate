@@ -29,7 +29,7 @@ public class ArtworkDAOImp implements ArtworkDAO {
 	@Override
 	public List<Artwork> getArtworkName(String artworkName){
 		Session currSession = entityManager.unwrap(Session.class);
-		Query<Artwork> query = currSession.createQuery("SELECT * FROM artwork WHERE artworkName = "+ artworkName + ";", Artwork.class);
+		Query<Artwork> query = currSession.createNativeQuery("SELECT * FROM artwork WHERE name = + \"" + artworkName + "\"", Artwork.class);
 		List<Artwork> list = query.getResultList();
 		
 		return list;
@@ -38,7 +38,7 @@ public class ArtworkDAOImp implements ArtworkDAO {
 	@Override
 	public List<Artwork> getArtworkAuthor(String author){
 		Session currSession = entityManager.unwrap(Session.class);
-		Query<Artwork> query = currSession.createQuery("SELECT * FROM artwork WHERE author = "+ author + ";", Artwork.class);
+		Query<Artwork> query = currSession.createNativeQuery("SELECT * FROM artwork WHERE author = \""+ author + "\"", Artwork.class);
 		List<Artwork> list = query.getResultList();
 		return list;
 	}

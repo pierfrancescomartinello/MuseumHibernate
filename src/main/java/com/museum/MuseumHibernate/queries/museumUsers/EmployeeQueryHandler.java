@@ -193,15 +193,17 @@ public class EmployeeQueryHandler {
 	}
 	
 	//Creates an employee from the database
-	public static ArrayList<Employee> EmployeeQueryDataHandler(){
+	public static ArrayList<Employee> employeeQueryDataHandler(){
 		try {
 			String url = "jdbc:mysql://localhost/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 			Connection conn = DriverManager.getConnection(url, "root","password");
 			Statement stmn = conn.createStatement();
 			ResultSet rs = stmn.executeQuery("SELECT * FROM employee");
+			
 			ArrayList<Employee> toReturn = new ArrayList<Employee>();
+			
 			while(rs.next()) {
-				Employee tmp = new Employee(rs.getString("fName"), rs.getString("surname"), rs.getInt("workingHours"), rs.getBigDecimal("salary"), rs.getInt("employeeId"));
+				Employee tmp = new Employee(rs.getString("name"), rs.getString("surname"), rs.getInt("workingHours"), rs.getBigDecimal("salary"), rs.getInt("employeeId"));
 				toReturn.add(tmp);
 			}
 			return toReturn;
