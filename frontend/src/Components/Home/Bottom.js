@@ -1,15 +1,13 @@
-import React from 'react';
+import React from "react";
 
 const bottomStyle = {
-    backgroundColor: '#260b02',    
-
+  backgroundColor: "#260b02",
 };
 
 export default function Bottom() {
-    return (
-            <div style={bottomStyle}>
-                <center></center>
-            </div> 
-    );
+  return (
+    <div style={bottomStyle}>
+      <center></center>
+    </div>
+  );
 }
-

@@ -13,13 +13,13 @@ import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   table: {
-    minWidth: 600
+    minWidth: 600,
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
   },
   paper: {
     display: "flex",
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     margin: `10px`,
     height: "100%",
     width: "99%",
-    marginTop: theme.spacing(7)
+    marginTop: theme.spacing(7),
   },
   link: {
     color: "rgba(0,0,0,0.65)",
@@ -37,9 +37,9 @@ const useStyles = makeStyles(theme => ({
     marginLeft: "10%",
     alignSelf: "flex-start",
     "&:hover": {
-      color: "rgba(0,0,0,1)"
-    }
-  }
+      color: "rgba(0,0,0,1)",
+    },
+  },
 }));
 
 export default function EmployeesTable() {
@@ -83,7 +83,7 @@ export default function EmployeesTable() {
               <TableRow>
                 <TableCell align="center">ID</TableCell>
                 <TableCell align="center">Name</TableCell>
-                <TableCell align="center">Surname</TableCell>               
+                <TableCell align="center">Surname</TableCell>
                 <TableCell align="center">Date of birth</TableCell>
                 <TableCell align="center">Date of signup</TableCell>
                 <TableCell align="center">Salary</TableCell>
@@ -95,7 +95,7 @@ export default function EmployeesTable() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {data?.map(row => (
+              {data?.map((row) => (
                 <TableRow key={row.employeeId}>
                   <TableCell align="center">{row.employeeId}</TableCell>
                   <TableCell align="center">{row.name}</TableCell>

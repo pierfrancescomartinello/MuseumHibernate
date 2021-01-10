@@ -1,35 +1,35 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import LoginForm from '../components/Form/LoginForm'
-import LoginBG from '../img/signInBG.png'
+import React from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import LoginForm from "../components/Form/LoginForm";
+import LoginBG from "../img/signInBG.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100vh',
+    height: "100vh",
   },
   image: {
     backgroundImage: `url(${LoginBG})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    minHeight: '320px',
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    minHeight: "320px",
   },
   paper: {
     margin: theme.spacing(8, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     marginTop: "5%",
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', 
+    width: "100%",
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -50,8 +50,7 @@ export default function ConfirmTicket() {
           <Typography component="h2" variant="h6">
             Enter your credentials to sign in.
           </Typography>
-          <div style={{padding: "1%"}}>
-          </div>
+          <div style={{ padding: "1%" }}></div>
           <LoginForm />
         </div>
       </Grid>

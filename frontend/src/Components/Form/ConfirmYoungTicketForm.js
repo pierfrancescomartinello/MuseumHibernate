@@ -14,7 +14,6 @@ const TextFieldEmail = () => {
     fetch(signInURL, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
-
         if (json === false) {
           console.log("Wrong email and / or password, please try again.");
           alert("Wrong email and / or password, please try again.");
@@ -24,7 +23,6 @@ const TextFieldEmail = () => {
           fetch(visitorIdURL, { method: "GET" })
             .then((res) => res.json())
             .then((json) => {
-
               if (json[0] === null)
                 console.log("No visitor is registered to this email address.");
               else {
@@ -52,7 +50,6 @@ const TextFieldEmail = () => {
                 fetch(url, requestOptions)
                   .then((res) => res.json())
                   .then((json) => {
-
                     if (json === false) console.log("Something went wrong.");
                     else {
                       alert("Young ticket succesfully bought!");

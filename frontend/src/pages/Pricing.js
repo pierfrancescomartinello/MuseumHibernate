@@ -1,31 +1,31 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import Grid from '@material-ui/core/Grid';
-import StarIcon from '@material-ui/icons/StarBorder';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import gallery from '../img/gallery32bpp.png'
-import {Link} from 'react-router-dom';
+import React from "react";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+import Grid from "@material-ui/core/Grid";
+import StarIcon from "@material-ui/icons/StarBorder";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import gallery from "../img/gallery32bpp.png";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
+  "@global": {
     ul: {
       margin: 0,
       padding: 0,
-      listStyle: 'none',
+      listStyle: "none",
     },
 
     body: {
       backgroundImage: `url(${gallery})`,
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      minHeight: '320px',
-    }
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      minHeight: "320px",
+    },
   },
 
   link: {
@@ -36,47 +36,44 @@ const useStyles = makeStyles((theme) => ({
   },
   cardHeader: {
     backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[700],
+      theme.palette.type === "light"
+        ? theme.palette.grey[200]
+        : theme.palette.grey[700],
   },
   cardPricing: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'baseline',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "baseline",
     marginBottom: theme.spacing(2),
   },
-
 }));
 
 const tiers = [
   {
-    title: 'Young',
-    price: '5€',
-    price_subtext: '',
-    description: [
-      'Easier, simplified descriptions for everyone to be seen.'
-    ],
-    buttonText: 'Buy young ticket',
-    buttonVariant: 'outlined',
+    title: "Young",
+    price: "5€",
+    price_subtext: "",
+    description: ["Easier, simplified descriptions for everyone to be seen."],
+    buttonText: "Buy young ticket",
+    buttonVariant: "outlined",
   },
   {
-    title: 'Adult',
-    price: '15€',
-    price_subtext: '',
+    title: "Adult",
+    price: "15€",
+    price_subtext: "",
     description: [
-      'Get the complete museum experience along with longer, complete descriptions.'
+      "Get the complete museum experience along with longer, complete descriptions.",
     ],
-    buttonText: 'Buy adult ticket',
-    buttonVariant: 'contained',
+    buttonText: "Buy adult ticket",
+    buttonVariant: "contained",
   },
   {
-    title: 'Group',
-    price: '5€',
-    price_subtext: '/person',
-    description: [
-      'Starting from groups of 5 or more people.'
-    ],
-    buttonText: 'Contact us',
-    buttonVariant: 'outlined',
+    title: "Group",
+    price: "5€",
+    price_subtext: "/person",
+    description: ["Starting from groups of 5 or more people."],
+    buttonText: "Contact us",
+    buttonVariant: "outlined",
   },
 ];
 
@@ -85,27 +82,39 @@ export default function Pricing() {
 
   return (
     <React.Fragment>
-
-
       {/* Hero unit */}
-      <Container maxWidth="sm" component="main" className={classes.heroContent} style={{marginTop:"100px"}}>
-        <Typography variant="h5" align="center" color="textSecondary" component="p">
-          
-        </Typography>
+      <Container
+        maxWidth="sm"
+        component="main"
+        className={classes.heroContent}
+        style={{ marginTop: "100px" }}
+      >
+        <Typography
+          variant="h5"
+          align="center"
+          color="textSecondary"
+          component="p"
+        ></Typography>
       </Container>
       {/* End hero unit */}
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
           {tiers.map((tier) => (
             // Enterprise card is full width at sm breakpoint
-            <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
+            <Grid
+              item
+              key={tier.title}
+              xs={12}
+              sm={tier.title === "Enterprise" ? 12 : 6}
+              md={4}
+            >
               <Card>
                 <CardHeader
                   title={tier.title}
                   subheader={tier.subheader}
-                  titleTypographyProps={{ align: 'center' }}
-                  subheaderTypographyProps={{ align: 'center' }}
-                  action={tier.title === 'Pro' ? <StarIcon /> : null}
+                  titleTypographyProps={{ align: "center" }}
+                  subheaderTypographyProps={{ align: "center" }}
+                  action={tier.title === "Pro" ? <StarIcon /> : null}
                   className={classes.cardHeader}
                 />
                 <CardContent>
@@ -119,14 +128,28 @@ export default function Pricing() {
                   </div>
                   <ul>
                     {tier.description.map((line) => (
-                      <Typography component="li" variant="subtitle1" align="center" key={line}>
+                      <Typography
+                        component="li"
+                        variant="subtitle1"
+                        align="center"
+                        key={line}
+                      >
                         {line}
                       </Typography>
                     ))}
                   </ul>
                 </CardContent>
                 <CardActions>
-                  <Button fullWidth component={Link} to={'/confirm' + tier.title + 'Ticket'} style={{backgroundColor: '#d18570', color: '#FFFFFF', fontWeight: 'bold'}} >
+                  <Button
+                    fullWidth
+                    component={Link}
+                    to={"/confirm" + tier.title + "Ticket"}
+                    style={{
+                      backgroundColor: "#d18570",
+                      color: "#FFFFFF",
+                      fontWeight: "bold",
+                    }}
+                  >
                     {tier.buttonText}
                   </Button>
                 </CardActions>

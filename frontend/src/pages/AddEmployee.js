@@ -10,29 +10,29 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(7),
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
+    margin: theme.spacing(3, 0, 2),
   },
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: "100%"
-  }
+    width: "100%",
+  },
 }));
 
 export default function AddEmployee() {
@@ -43,9 +43,9 @@ export default function AddEmployee() {
   const [lastName, setLastName] = React.useState("");
   const [description, setDescription] = React.useState("");
 
-  const handleNameChange = event => setFirstName(event.target.value);
-  const handlDepartmentChange = event => setLastName(event.target.value);
-  const handleGenderChange = event => setDescription(event.target.value);
+  const handleNameChange = (event) => setFirstName(event.target.value);
+  const handlDepartmentChange = (event) => setLastName(event.target.value);
+  const handleGenderChange = (event) => setDescription(event.target.value);
 
   async function sampleFunc(toInput) {
     // eslint-disable-next-line
@@ -55,17 +55,17 @@ export default function AddEmployee() {
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
       credentials: "same-origin", // include, *same-origin, omit
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       redirect: "follow", // manual, *follow, error
       referrerPolicy: "no-referrer", // no-referrer, *client
-      body: JSON.stringify(toInput) // body data type must match "Content-Type" header
+      body: JSON.stringify(toInput), // body data type must match "Content-Type" header
     });
   }
 
-  const handleSubmit = variables => {
-    const toInput = {firstName, lastName, description};
+  const handleSubmit = (variables) => {
+    const toInput = { firstName, lastName, description };
     sampleFunc(toInput);
     setFirstName("");
     setLastName("");
@@ -79,7 +79,7 @@ export default function AddEmployee() {
   }
 
   return (
-    <Container component="main" maxWidth="xs" style={{marginTop: 100}}>
+    <Container component="main" maxWidth="xs" style={{ marginTop: 100 }}>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -116,7 +116,7 @@ export default function AddEmployee() {
                 onChange={handlDepartmentChange}
               />
             </Grid>
-            <Grid item xs={12}> 
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -145,10 +145,9 @@ export default function AddEmployee() {
           <Grid container justify="center">
             <Grid item>
               <Link to="/employees">View Employee Records</Link>
-            </Grid>            
+            </Grid>
           </Grid>
         </form>
-
       </div>
     </Container>
   );
