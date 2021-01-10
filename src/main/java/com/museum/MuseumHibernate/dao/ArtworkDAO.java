@@ -11,4 +11,5 @@ public interface ArtworkDAO {
 		List<Artwork> getArtworkAuthor(String author);
 		void save(Artwork artwork);
 		void delete(int id);
+		List<Artwork> getArtworkName(int areaId);
 }

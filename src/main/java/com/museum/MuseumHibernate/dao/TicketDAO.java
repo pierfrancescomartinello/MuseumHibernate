@@ -14,4 +14,5 @@ public interface TicketDAO {
 	 List <Ticket> get(float ticketprice);
 	 void save(Ticket ticket);
 	 void delete(int id);
+	List<Ticket> getUsableTickets(int visitor);
 }

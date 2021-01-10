@@ -1,5 +1,6 @@
 package com.museum.MuseumHibernate.modal;
 
+import java.awt.image.BufferedImage;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +23,19 @@ public class Artwork {
 	@Column(name="name")
 	public String name;
 	
+	public Artwork(Integer artworkId, String name, String author, Date date, String simpleDescription,
+			String completeDescription, Integer areaId, BufferedImage image, BufferedImage miniature) {
+		super();
+		this.artworkId = artworkId;
+		this.name = name;
+		this.author = author;
+		this.date = date;
+		this.simpleDescription = simpleDescription;
+		this.completeDescription = completeDescription;
+		this.areaId = areaId;
+		this.image = image;
+		this.miniature = miniature;
+	}
 	@Column(name="author")
 	public String author;
 	
@@ -35,7 +49,13 @@ public class Artwork {
 	public String completeDescription;
 	
 	@Column(name="areaid")
-	public String areaId;
+	public Integer areaId;
+	
+	@Column(name="immagine")
+	public BufferedImage image;
+	
+	@Column(name="miniatura")
+	public BufferedImage miniature;
 	
 
 	/*

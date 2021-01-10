@@ -62,4 +62,13 @@ public class ArtworkDAOImp implements ArtworkDAO {
 		Artwork emp = currSession.get(Artwork.class, id);
 		currSession.delete(emp);
 	}
+
+	@Override
+	public List<Artwork> getArtworkName(int areaId) {
+		Session currSession = entityManager.unwrap(Session.class);
+		Query<Artwork> query = currSession.createNativeQuery("SELECT * FROM artwork WHERE areaId = + " + areaId , Artwork.class);
+		List<Artwork> list = query.getResultList();
+		
+		return list;
+	}
 }

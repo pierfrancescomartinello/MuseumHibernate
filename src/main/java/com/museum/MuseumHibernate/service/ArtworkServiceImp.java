@@ -50,4 +50,10 @@ public class ArtworkServiceImp implements ArtworkService {
 	public List<Artwork> getArtworkAuthor(String author){
 		return artworkDao.getArtworkAuthor(author);
 	}
+	
+	@Transactional
+	@Override
+	public List<Artwork> getArtworkName(int areaId) {
+		return artworkDao.getArtworkName(areaId);
+	}
 }

@@ -70,6 +70,10 @@ public class TicketController {
 	@GetMapping("/ticket/purchaseDate={purchaseDate}")
     public List<Ticket> get(@PathVariable String c, Date purchaseDate) {
         return ticketService.get(purchaseDate);
-}
-
+	}
+	
+	@GetMapping("/ticket/visitor={visitor}/usable")
+    public List<Ticket> getUsableTickets(@PathVariable("visitorId") int visitor) {
+        return ticketService.getUsableTickets(visitor);
+	}
 }

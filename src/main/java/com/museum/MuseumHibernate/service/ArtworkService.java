@@ -9,6 +9,7 @@ public interface ArtworkService {
 	List<Artwork> get();
 	Artwork get(int id);
 	List<Artwork> getArtworkName(String artworkName);
+	List<Artwork> getArtworkName(int areaId);
 	void save(Artwork artwork);
  	void delete(int id);	
 	List<Artwork> getArtworkAuthor(String artworkName);

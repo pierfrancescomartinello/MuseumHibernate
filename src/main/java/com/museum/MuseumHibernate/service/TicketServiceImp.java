@@ -39,28 +39,34 @@ public class TicketServiceImp implements TicketService {
 	public void delete(int id) {
 		ticketDao.delete(id);		
 	}
-		@Transactional
+	@Transactional
 	@Override
 	public List<Ticket> get(String tickettype) {
 		return ticketDao.get(tickettype);
 	}
 	
-		@Transactional
+	@Transactional
 	@Override
 	public List<Ticket> get(float ticketprice) {
 		return ticketDao.get(ticketprice);
 	}
 	
-		@Transactional
+	@Transactional
 	@Override
 	public List<Ticket> get(Date visitdate) {
 		return ticketDao.get(visitdate);
 	}
 	
-		@Transactional
+	@Transactional
 	@Override
 	public List<Ticket> get(String c, Date purchaseDate) {
 		return ticketDao.get(purchaseDate);
+	}
+		
+	@Transactional
+	@Override
+	public List<Ticket> getUsableTickets(int visitor) {
+		return ticketDao.getUsableTickets(visitor);
 	}
 	
 }

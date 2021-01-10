@@ -55,6 +55,11 @@ public class ArtworkController {
 		return artworkService.getArtworkName(artworkName);
 	}
 	
+	@GetMapping("/artwork/areaId={areaId}")
+	public List<Artwork> getArtworkName(@PathVariable int areaId){
+		return artworkService.getArtworkName(areaId);
+	}
+	
 	@GetMapping("/artwork/author={author}")
 	public List<Artwork> getArtworkAuthor(@PathVariable String author){
 			return artworkService.getArtworkAuthor(author);

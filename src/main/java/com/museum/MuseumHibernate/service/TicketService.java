@@ -15,4 +15,5 @@ public interface TicketService {
 	List <Ticket> get(float ticketprice);
 	void save(Ticket artwork);
  	void delete(int id);
+	List<Ticket> getUsableTickets(int visitor);
 }

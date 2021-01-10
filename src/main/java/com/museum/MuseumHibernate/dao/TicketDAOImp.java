@@ -79,4 +79,12 @@ public class TicketDAOImp implements TicketDAO {
 		List<Ticket> list= query.getResultList();
 		return list;
 	}
+
+	@Override
+	public List<Ticket> getUsableTickets(int visitor) {
+		Session currSession = entityManager.unwrap(Session.class);
+		Query<Ticket> query = currSession.createNativeQuery("select * from Ticket where visitor=\"" + visitor + "\"", Ticket.class);
+		List<Ticket> list= query.getResultList();
+		return list;
+	}
 }
