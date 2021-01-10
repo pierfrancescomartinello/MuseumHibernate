@@ -2,7 +2,7 @@ package com.museum.MuseumHibernate.service;
 
 import java.util.List;
 
-import com.museum.MuseumHibernate.modal.Area;
+import com.museum.MuseumHibernate.model.Area;
 import com.museum.MuseumHibernate.service.AreaService;
 
 public interface AreaService {

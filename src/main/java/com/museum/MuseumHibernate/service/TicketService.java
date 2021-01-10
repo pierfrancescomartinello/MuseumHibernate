@@ -3,7 +3,7 @@ package com.museum.MuseumHibernate.service;
 import java.util.List;
 import java.util.Date;
 
-import com.museum.MuseumHibernate.modal.Ticket;
+import com.museum.MuseumHibernate.model.Ticket;
 import com.museum.MuseumHibernate.service.TicketService;
 
 public interface TicketService {

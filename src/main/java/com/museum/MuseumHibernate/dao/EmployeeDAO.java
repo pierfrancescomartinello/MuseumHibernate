@@ -2,7 +2,7 @@ package com.museum.MuseumHibernate.dao;
 
 import java.util.List;
 
-import com.museum.MuseumHibernate.modal.Employee;
+import com.museum.MuseumHibernate.model.Employee;
 
 public interface EmployeeDAO {
 	 List<Employee> get();

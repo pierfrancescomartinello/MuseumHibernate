@@ -2,7 +2,7 @@ package com.museum.MuseumHibernate.service;
 
 import java.util.List;
 
-import com.museum.MuseumHibernate.modal.Account;
+import com.museum.MuseumHibernate.model.Account;
 import com.museum.MuseumHibernate.service.AccountService;
 
 public interface AccountService {

@@ -10,8 +10,7 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.museum.MuseumHibernate.modal.Employee;
-import com.museum.MuseumHibernate.modal.Ticket;
+import com.museum.MuseumHibernate.model.Ticket;
 
 @Repository
 public class TicketDAOImp implements TicketDAO {

@@ -1,5 +1,6 @@
 package com.museum.MuseumHibernate.queries.museumNavigation;
 
+/*
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -20,6 +21,7 @@ import com.museum.MuseumHibernate.modal.Artwork;
 
 public class ArtworkQueryHandler {
 	
+	
 	public boolean addImage(Artwork toAdd) throws IOException {	
 		try {
 			String url = "jdbc:mysql://localhost/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -28,8 +30,10 @@ public class ArtworkQueryHandler {
             String sql = "Insert into artwork (name, author, submissionDate, simpleDescription, completeDescription, areaId, immagine, miniatura) values (\"" + toAdd.name + "\", \"" + toAdd.author + "\", \'" + toAdd.date + "\', \"" +toAdd.simpleDescription+ "\", \"" + toAdd.completeDescription + "\" , " + toAdd.areaId + ", ?, ?) ;";
             PreparedStatement statement = conn.prepareStatement(sql);
             
+            
             InputStream image = BIToIS(toAdd.image);
             InputStream miniature = BIToIS(toAdd.miniature);
+             
             
             statement.setBlob(1, image);
             statement.setBlob(2, miniature);
@@ -75,3 +79,4 @@ public class ArtworkQueryHandler {
 		return toReturn;
 	}
 }
+ */

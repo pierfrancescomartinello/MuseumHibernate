@@ -2,7 +2,7 @@ package com.museum.MuseumHibernate.dao;
 
 import java.util.List;
 
-import com.museum.MuseumHibernate.modal.Artwork;
+import com.museum.MuseumHibernate.model.Artwork;
 
 public interface ArtworkDAO {
 		List<Artwork> get();

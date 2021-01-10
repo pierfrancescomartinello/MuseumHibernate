@@ -1,7 +1,6 @@
-package com.museum.MuseumHibernate.modal;
+package com.museum.MuseumHibernate.model;
 
 import java.util.ArrayList;
-import com.museum.MuseumHibernate.modal.Visitor;
 
 public class Sales {
 	
@@ -9,6 +8,7 @@ public class Sales {
 		
 	}
 	
+	@SuppressWarnings("unused")
 	private String visitorID;
 	private ArrayList<Ticket> soldTickets;
 	

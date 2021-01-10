@@ -1,4 +1,4 @@
-package com.museum.MuseumHibernate.modal;
+package com.museum.MuseumHibernate.model;
 
 import java.math.BigDecimal;
 import java.sql.Date;

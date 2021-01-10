@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.museum.MuseumHibernate.modal.Area;
+import com.museum.MuseumHibernate.model.Area;
 import com.museum.MuseumHibernate.service.AreaService;
 
 @RestController

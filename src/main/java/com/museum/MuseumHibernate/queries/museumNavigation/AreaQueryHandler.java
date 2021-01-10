@@ -1,15 +1,13 @@
 package com.museum.MuseumHibernate.queries.museumNavigation;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 
-import com.museum.MuseumHibernate.util.Utilities;
 
 public class AreaQueryHandler {
+	@SuppressWarnings("unused")
 	public boolean addAreaQuery(String areaName, String areaStyle, int curatorId) {
 		try {
 			boolean isAccessible = true;
@@ -26,6 +24,7 @@ public class AreaQueryHandler {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	public boolean modifyAccessibilityQuery(String areaName, boolean isAccessible) {
 		try {
 			String url = "jdbc:mysql://localhost/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -40,6 +39,7 @@ public class AreaQueryHandler {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	public boolean modifyCuratorQuery(String areaName, int newCuratorId) {
 		try {
 			String url = "jdbc:mysql://localhost/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";

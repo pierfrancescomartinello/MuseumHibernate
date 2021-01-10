@@ -2,7 +2,7 @@ package com.museum.MuseumHibernate.service;
 
 import java.util.List;
 
-import com.museum.MuseumHibernate.modal.Artwork;
+import com.museum.MuseumHibernate.model.Artwork;
 import com.museum.MuseumHibernate.service.ArtworkService;
 
 public interface ArtworkService {

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.museum.MuseumHibernate.modal.Visitor;
+import com.museum.MuseumHibernate.model.Visitor;
 import com.museum.MuseumHibernate.service.VisitorService;
 
 @RestController
@@ -57,8 +57,13 @@ public class VisitorController {
 	}
 	
 	@GetMapping("/visitor/surname={surname}")
-		public List<Visitor> getSurname(@PathVariable String surname) {
-			return visitorService.getSurname(surname);
+	public List<Visitor> getSurname(@PathVariable String surname) {
+		return visitorService.getSurname(surname);
 	}
+	
+	@GetMapping("/visitor/email={email}")
+	public List<Visitor> getEmail(@PathVariable String email) {
+		return visitorService.getEmail(email);
+}
 	
 }

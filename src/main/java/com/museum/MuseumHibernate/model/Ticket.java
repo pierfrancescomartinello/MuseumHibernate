@@ -1,4 +1,4 @@
-package com.museum.MuseumHibernate.modal;
+package com.museum.MuseumHibernate.model;
 
 import java.sql.Date;
 import javax.persistence.Column;

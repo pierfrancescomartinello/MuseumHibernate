@@ -49,7 +49,7 @@ export default function AddEmployee() {
 
   async function sampleFunc(toInput) {
     // eslint-disable-next-line
-    const response = await fetch("/api/employees", {
+    const response = await fetch("/api/employee", {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached

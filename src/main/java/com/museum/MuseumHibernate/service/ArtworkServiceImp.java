@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.museum.MuseumHibernate.dao.ArtworkDAO;
-import com.museum.MuseumHibernate.modal.Artwork;
+import com.museum.MuseumHibernate.model.Artwork;
 
 @Service
 public class ArtworkServiceImp implements ArtworkService {

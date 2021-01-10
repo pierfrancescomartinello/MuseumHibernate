@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.museum.MuseumHibernate.dao.EmployeeDAO;
-import com.museum.MuseumHibernate.modal.Employee;
+import com.museum.MuseumHibernate.model.Employee;
 
 @Service
 public class EmployeeServiceImp implements EmployeeService {

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.museum.MuseumHibernate.modal.Ticket;
+import com.museum.MuseumHibernate.model.Ticket;
 import com.museum.MuseumHibernate.service.TicketService;
 
 @RestController

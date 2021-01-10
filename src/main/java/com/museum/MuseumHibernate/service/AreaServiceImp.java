@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.museum.MuseumHibernate.dao.AreaDAO;
-import com.museum.MuseumHibernate.modal.Area;
+import com.museum.MuseumHibernate.model.Area;
 
 @Service
 public class AreaServiceImp implements AreaService {

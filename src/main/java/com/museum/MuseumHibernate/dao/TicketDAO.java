@@ -1,9 +1,10 @@
 package com.museum.MuseumHibernate.dao;
 
 import java.util.List;
-import java.util.Date;
 
-import com.museum.MuseumHibernate.modal.Ticket;
+import com.museum.MuseumHibernate.model.Ticket;
+
+import java.util.Date;
 
 public interface TicketDAO {
 	 List<Ticket> get();

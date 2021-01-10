@@ -1,4 +1,4 @@
-package com.museum.MuseumHibernate.modal;
+package com.museum.MuseumHibernate.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

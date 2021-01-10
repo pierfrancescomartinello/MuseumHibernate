@@ -2,7 +2,7 @@ package com.museum.MuseumHibernate.dao;
 
 import java.util.List;
 
-import com.museum.MuseumHibernate.modal.Account;
+import com.museum.MuseumHibernate.model.Account;
 
 public interface AccountDAO {
 	 List<Account> get();

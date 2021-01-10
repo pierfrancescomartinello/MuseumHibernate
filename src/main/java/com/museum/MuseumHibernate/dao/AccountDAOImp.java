@@ -9,8 +9,8 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.museum.MuseumHibernate.modal.Account;
-import com.museum.MuseumHibernate.modal.Employee;
+import com.museum.MuseumHibernate.model.Account;
+
 
 @Repository
 public class AccountDAOImp implements AccountDAO {

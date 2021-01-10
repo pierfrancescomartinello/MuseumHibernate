@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.museum.MuseumHibernate.dao.TicketDAO;
-import com.museum.MuseumHibernate.modal.Ticket;
+import com.museum.MuseumHibernate.model.Ticket;
 
 @Service
 public class TicketServiceImp implements TicketService {

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.museum.MuseumHibernate.dao.AccountDAO;
-import com.museum.MuseumHibernate.modal.Account;
+import com.museum.MuseumHibernate.model.Account;
 
 @Service
 public class AccountServiceImp implements AccountService {

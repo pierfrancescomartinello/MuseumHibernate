@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.museum.MuseumHibernate.dao.VisitorDAO;
-import com.museum.MuseumHibernate.modal.Visitor;
+import com.museum.MuseumHibernate.model.Visitor;
 
 @Service
 public class VisitorServiceImp implements VisitorService {

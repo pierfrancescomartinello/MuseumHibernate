@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.museum.MuseumHibernate.modal.Employee;
+import com.museum.MuseumHibernate.model.Employee;
 
 @Repository
 public class EmployeeDAOImp implements EmployeeDAO {
@@ -27,6 +27,7 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	}
 	*/
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Employee> getAscWorkingHours(){
 		Session currSession = entityManager.unwrap(Session.class);
@@ -36,6 +37,7 @@ public class EmployeeDAOImp implements EmployeeDAO {
 		return list;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Employee> getDescWorkingHours(){
 		Session currSession = entityManager.unwrap(Session.class);

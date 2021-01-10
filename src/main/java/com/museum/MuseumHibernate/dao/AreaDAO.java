@@ -2,7 +2,7 @@ package com.museum.MuseumHibernate.dao;
 
 import java.util.List;
 
-import com.museum.MuseumHibernate.modal.Area;
+import com.museum.MuseumHibernate.model.Area;
 
 public interface AreaDAO {
 		List<Area> get();

@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.museum.MuseumHibernate.modal.Artwork;
+import com.museum.MuseumHibernate.model.Artwork;
 
 @Repository
 public class ArtworkDAOImp implements ArtworkDAO {

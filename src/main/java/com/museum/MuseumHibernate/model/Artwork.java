@@ -1,6 +1,6 @@
-package com.museum.MuseumHibernate.modal;
+package com.museum.MuseumHibernate.model;
 
-import java.awt.image.BufferedImage;
+//import java.awt.image.BufferedImage;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
