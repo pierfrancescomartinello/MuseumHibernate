@@ -12,4 +12,5 @@ public interface VisitorService {
 	List<Visitor> getSurname(String surname);
 	void save(Visitor artwork);
  	void delete(int id);
+	List<Visitor> getEmail(String email);
 }

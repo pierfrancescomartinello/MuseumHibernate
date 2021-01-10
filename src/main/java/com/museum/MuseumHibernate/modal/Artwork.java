@@ -24,7 +24,7 @@ public class Artwork {
 	public String name;
 	
 	public Artwork(Integer artworkId, String name, String author, Date date, String simpleDescription,
-			String completeDescription, Integer areaId, BufferedImage image, BufferedImage miniature) {
+			String completeDescription, Integer areaId/*, BufferedImage image, BufferedImage miniature*/) {
 		super();
 		this.artworkId = artworkId;
 		this.name = name;
@@ -33,8 +33,10 @@ public class Artwork {
 		this.simpleDescription = simpleDescription;
 		this.completeDescription = completeDescription;
 		this.areaId = areaId;
+		/*
 		this.image = image;
 		this.miniature = miniature;
+		*/
 	}
 	@Column(name="author")
 	public String author;
@@ -50,13 +52,13 @@ public class Artwork {
 	
 	@Column(name="areaid")
 	public Integer areaId;
-	
+	/*
 	@Column(name="immagine")
 	public BufferedImage image;
 	
 	@Column(name="miniatura")
 	public BufferedImage miniature;
-	
+	*/
 
 	/*
 		da integrare tramite richieste POST e DELETE

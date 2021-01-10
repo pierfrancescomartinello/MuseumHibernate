@@ -54,11 +54,32 @@ public class LoginController {
 		String password = "we";*/
 		
 		Session currSession = entityManager.unwrap(Session.class);
-		Query<String> query = currSession.createNativeQuery("Select password from account where email = \"" + email +"\" and password = \"" + password+ "\"");
+		@SuppressWarnings("unchecked")
+		Query<String> query = currSession.createNativeQuery(
+				"SELECT password from account "
+				+ "WHERE email = \"" + email +"\" and password = \"" + password+ "\"");
 		List<String> list = query.getResultList();
 		
 		if ((list.size()) == 1)
 			return true;
 		return false;
+	}
+	
+	// useful to get a visitorId relative to a certain email. 
+	@GetMapping("/login/visitorId")
+	public @ResponseBody List<Integer> visitorIdQuery (@RequestParam("email") String email) {
+		/*String email = "we";
+		String password = "we";*/
+		
+		Session currSession = entityManager.unwrap(Session.class);
+		@SuppressWarnings("unchecked")
+		Query<Integer> query = currSession.createNativeQuery(
+				"SELECT visitorid FROM account, visitor "
+				+ "WHERE account.email = visitor.email and account.email=\'" + email + "'");
+		List<Integer> list = query.getResultList();
+		
+		if ((list.size()) == 1)
+			return list;
+		return null;
 	}
 }

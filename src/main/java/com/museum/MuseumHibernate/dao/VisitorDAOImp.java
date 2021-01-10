@@ -49,7 +49,7 @@ public class VisitorDAOImp implements VisitorDAO {
 	@Override
 	public List<Visitor> getName(String name) {
 		Session currSession = entityManager.unwrap(Session.class);
-		Query<Visitor> query = currSession.createNativeQuery("select * from Ticket where name=\"" + name + "\"", Visitor.class);
+		Query<Visitor> query = currSession.createNativeQuery("select * from Ticket where fName=\"" + name + "\"", Visitor.class);
 		List<Visitor> list= query.getResultList();
 		return list;
 	}
@@ -58,6 +58,14 @@ public class VisitorDAOImp implements VisitorDAO {
 	public List<Visitor> getSurname(String surname) {
 		Session currSession = entityManager.unwrap(Session.class);
 		Query<Visitor> query = currSession.createNativeQuery("select * from Ticket where surname=\"" + surname + "\"", Visitor.class);
+		List<Visitor> list= query.getResultList();
+		return list;
+	}
+
+	@Override
+	public List<Visitor> getEmail(String email) {
+		Session currSession = entityManager.unwrap(Session.class);
+		Query<Visitor> query = currSession.createNativeQuery("select * from Visitor where email=\"" + email + "\"", Visitor.class);
 		List<Visitor> list= query.getResultList();
 		return list;
 	}

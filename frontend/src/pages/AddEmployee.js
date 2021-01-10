@@ -48,6 +48,7 @@ export default function AddEmployee() {
   const handleGenderChange = event => setDescription(event.target.value);
 
   async function sampleFunc(toInput) {
+    // eslint-disable-next-line
     const response = await fetch("/api/employees", {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin

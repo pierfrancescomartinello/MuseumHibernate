@@ -50,5 +50,11 @@ public class VisitorServiceImp implements VisitorService {
 	public List<Visitor> getSurname(String surname) {
 		return visitorDao.getSurname(surname);
 	}
+
+	@Override
+	public List<Visitor> getEmail(String email) {
+		// TODO Auto-generated method stub
+		return visitorDao.getEmail(email);
+	}
 	
 }

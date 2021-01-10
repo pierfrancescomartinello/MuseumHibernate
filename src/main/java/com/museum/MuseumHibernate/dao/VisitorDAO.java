@@ -11,5 +11,6 @@ public interface VisitorDAO {
 	 void delete(int id);
 	 List<Visitor> getName(String name);
 	 List<Visitor> getSurname(String surname);
+	 List<Visitor> getEmail(String email);
 }
 

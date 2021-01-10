@@ -9,7 +9,8 @@ import StarIcon from '@material-ui/icons/StarBorder';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import gallery from '../img/gallery32bpp.png'
+import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -18,6 +19,13 @@ const useStyles = makeStyles((theme) => ({
       padding: 0,
       listStyle: 'none',
     },
+
+    body: {
+      backgroundImage: `url(${gallery})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      minHeight: '320px',
+    }
   },
 
   link: {
@@ -36,32 +44,36 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'baseline',
     marginBottom: theme.spacing(2),
   },
+
 }));
 
 const tiers = [
   {
     title: 'Young',
-    price: '0',
+    price: '5€',
+    price_subtext: '',
     description: [
-      ''
+      'Easier, simplified descriptions for everyone to be seen.'
     ],
-    buttonText: 'Sign up for free',
+    buttonText: 'Buy young ticket',
     buttonVariant: 'outlined',
   },
   {
     title: 'Adult',
-    price: '15',
+    price: '15€',
+    price_subtext: '',
     description: [
-      ''
+      'Get the complete museum experience along with longer, complete descriptions.'
     ],
-    buttonText: 'Get started',
+    buttonText: 'Buy adult ticket',
     buttonVariant: 'contained',
   },
   {
     title: 'Group',
-    price: '30',
+    price: '5€',
+    price_subtext: '/person',
     description: [
-      ''
+      'Starting from groups of 5 or more people.'
     ],
     buttonText: 'Contact us',
     buttonVariant: 'outlined',
@@ -77,9 +89,6 @@ export default function Pricing() {
 
       {/* Hero unit */}
       <Container maxWidth="sm" component="main" className={classes.heroContent} style={{marginTop:"100px"}}>
-        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          Pricing
-        </Typography>
         <Typography variant="h5" align="center" color="textSecondary" component="p">
           
         </Typography>
@@ -102,7 +111,10 @@ export default function Pricing() {
                 <CardContent>
                   <div className={classes.cardPricing}>
                     <Typography component="h2" variant="h3" color="textPrimary">
-                      {tier.price}€
+                      {tier.price}
+                    </Typography>
+                    <Typography component="h2" variant="h4" color="textPrimary">
+                      {tier.price_subtext}
                     </Typography>
                   </div>
                   <ul>
@@ -114,7 +126,7 @@ export default function Pricing() {
                   </ul>
                 </CardContent>
                 <CardActions>
-                  <Button fullWidth style={{backgroundColor: '#d18570'}}>
+                  <Button fullWidth component={Link} to={'/confirm' + tier.title + 'Ticket'} style={{backgroundColor: '#d18570', color: '#FFFFFF', fontWeight: 'bold'}} >
                     {tier.buttonText}
                   </Button>
                 </CardActions>
