@@ -72,4 +72,55 @@ public class LoginController {
 			return list;
 		return null;
 	}
+	
+	@GetMapping("/login/userInfo/name")
+	public @ResponseBody List<String> userInfoQueryName (@RequestParam("email") String email) {
+		Session currSession = entityManager.unwrap(Session.class);
+		
+		@SuppressWarnings("unchecked")
+		Query<String> query = currSession.createNativeQuery(
+				"SELECT fName "
+				+ "FROM account, visitor "
+				+ "WHERE account.email = visitor.email and account.email=\'" + email + "'");
+		
+		List<String> list = query.getResultList();
+		
+		if ((list.size()) == 1)
+			return list;
+		return null;
+	}
+	
+	@GetMapping("/login/userInfo/surname")
+	public @ResponseBody List<String> userInfoQuerySurname (@RequestParam("email") String email) {
+		Session currSession = entityManager.unwrap(Session.class);
+		
+		@SuppressWarnings("unchecked")
+		Query<String> query = currSession.createNativeQuery(
+				"SELECT surname "
+				+ "FROM account, visitor "
+				+ "WHERE account.email = visitor.email and account.email=\'" + email + "'");
+		
+		List<String> list = query.getResultList();
+		
+		if ((list.size()) == 1)
+			return list;
+		return null;
+	}
+	
+	@GetMapping("/login/userInfo/visitorId")
+	public @ResponseBody List<Integer> userInfoQueryVisitorId (@RequestParam("email") String email) {
+		Session currSession = entityManager.unwrap(Session.class);
+		
+		@SuppressWarnings("unchecked")
+		Query<Integer> query = currSession.createNativeQuery(
+				"SELECT visitorId "
+				+ "FROM account, visitor "
+				+ "WHERE account.email = visitor.email and account.email=\'" + email + "'");
+		
+		List<Integer> list = query.getResultList();
+		
+		if ((list.size()) == 1)
+			return list;
+		return null;
+	}
 }

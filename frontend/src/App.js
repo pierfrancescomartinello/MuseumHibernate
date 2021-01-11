@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Pricing from "./pages/Pricing";
 import ConfirmYoungTicket from "./pages/ConfirmYoungTicket";
 import ConfirmAdultTicket from "./pages/ConfirmAdultTicket";
+import Dashboard from "./pages/Dashboard";
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/signup" exact component={Signup} />
         <Route path="/confirmYoungTicket" component={ConfirmYoungTicket} />
         <Route path="/confirmAdultTicket" component={ConfirmAdultTicket} />
+        <Route path="/dashboard" component={Dashboard} />
       </div>
     </Router>
   );

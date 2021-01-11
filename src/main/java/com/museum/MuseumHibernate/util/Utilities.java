@@ -1,6 +1,9 @@
 package com.museum.MuseumHibernate.util;
 
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
@@ -37,5 +40,18 @@ public class Utilities{
 	public static String generateHiddenPassword(int length){
 		String s = "*";
 		return s.repeat(length);
+	}
+	
+	public static ByteBuffer encodingPassoword(String toEncode){
+		ByteBuffer utf8String = StandardCharsets.US_ASCII.encode(toEncode); 
+		System.out.println(utf8String.toString());
+		
+		return utf8String;
+	}
+	
+	public static String decodingPassword(ByteBuffer toDecode){
+		String encodedString = StandardCharsets.US_ASCII.decode(toDecode).toString();
+		
+		return encodedString;
 	}
 }

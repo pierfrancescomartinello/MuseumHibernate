@@ -5,21 +5,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 import com.museum.MuseumHibernate.queries.museumSales.TicketQueryHandler;
-
+import com.museum.MuseumHibernate.model.Area;
 @RestController
 @RequestMapping("/api")
 public class VisitController {
 
+	@Autowired
+	private AreaController controller;
+	
 	@GetMapping("/visit/home")
-	public String viewArea(){
-		return "redirect:api/area";
+	public ModelAndView viewArea(){
+		return new ModelAndView("redirect:/api/area");
 	}
 	
 	@GetMapping("/visit/visitor={visitor}/useTicket")
-	public String viewTicket(@PathVariable int visitor) {
-		return "redirect:/api/ticket/visitor={visitor}/usable";
+	public ModelAndView viewTicket(@PathVariable int visitor) {
+		return new ModelAndView("redirect:/api/ticket/visitor={visitor}/usable");
 	}
 	
 	@PostMapping("/visit/visitor={visitor}/useTicket/ticketId={ticketId}")
@@ -28,13 +35,13 @@ public class VisitController {
 	}
 	
 	@GetMapping("/visit/area={areaId}")
-	public String viewArea(@PathVariable("areaId") int areaId) {
-		return "redirect:api/artwork/areaId={areaId}";
+	public ModelAndView viewArea(@PathVariable("areaId") int areaId) {
+		return new ModelAndView("redirect:/api/artwork/areaId={areaId}");
 	}
 	
 	@GetMapping("/visit/id={id}")
-	public String viewArtwork(@PathVariable("id") int id){
-		return "redirect:api/artwork/{id}";
+	public ModelAndView viewArtwork(@PathVariable("id") int id){
+		return new ModelAndView("redirect:/api/artwork/{id}");
 	}
 
 }

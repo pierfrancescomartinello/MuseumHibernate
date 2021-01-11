@@ -82,7 +82,6 @@ export default function Pricing() {
 
   return (
     <React.Fragment>
-      {/* Hero unit */}
       <Container
         maxWidth="sm"
         component="main"
@@ -96,7 +95,7 @@ export default function Pricing() {
           component="p"
         ></Typography>
       </Container>
-      {/* End hero unit */}
+
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
           {tiers.map((tier) => (

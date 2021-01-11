@@ -17,16 +17,6 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	@Autowired
 	private EntityManager entityManager;
 	
-	/* Native query example	
-	public List<Employee> get() {
-		Session currSession = entityManager.unwrap(Session.class);
-		Query<Employee> query = currSession.createNativeQuery("select * from Employee", Employee.class);
-		List<Employee> list = query.getResultList();	
-
-		return list;
-	}
-	*/
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Employee> getAscWorkingHours(){
