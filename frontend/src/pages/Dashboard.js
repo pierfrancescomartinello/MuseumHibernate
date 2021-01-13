@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import UserInfo from "../components/Dashboard/UserInfo";
 import Tickets from "../components/Dashboard/Tickets";
+import AppbarLoggedIn from "../components/AppbarLoggedIn";
 
 const useStyles = makeStyles((theme) => ({
   appBarSpacer: theme.mixins.toolbar,
@@ -30,6 +31,7 @@ export default function Dashboard() {
 
   return (
     <div className={classes.root} style={{backgroundColor: "#dac0b8", minHeight:"100vh"}}>
+    <AppbarLoggedIn />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>

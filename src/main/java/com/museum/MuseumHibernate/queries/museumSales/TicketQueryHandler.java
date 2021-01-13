@@ -62,7 +62,7 @@ public class TicketQueryHandler {
             String url = "jdbc:mysql://localhost/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement stmn = conn.createStatement();
-            int i = stmn.executeUpdate("UPDATE ticket SET isUsable = \"" + false + "\";");
+            int i = stmn.executeUpdate("UPDATE ticket SET isUsable = 0 Where ticketId =" + ticketId + ";");
             stmn.close();
             return true;
         } catch (SQLException sqle) {

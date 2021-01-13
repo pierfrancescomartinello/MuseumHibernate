@@ -3,13 +3,20 @@ import { Route, BrowserRouter as Router } from "react-router-dom";
 import AddEmployee from "./pages/AddEmployee";
 import AppBar from "./components/AppBar";
 import EmployeesTable from "./pages/EmployeesTable";
-import Login from "./pages/Login.js";
+import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Pricing from "./pages/Pricing";
 import ConfirmYoungTicket from "./pages/ConfirmYoungTicket";
 import ConfirmAdultTicket from "./pages/ConfirmAdultTicket";
 import Dashboard from "./pages/Dashboard";
+import AreaHub from "./pages/AreaHub";
+import Baroque from "./pages/Area/Baroque";
+import Cubism from "./pages/Area/Cubism";
+import Impressionism from "./pages/Area/Impressionism";
+import Renaissance from "./pages/Area/Renaissance";
+import Artwork from "./pages/Area/Artwork";
+
 
 export default function App() {
   return (
@@ -25,6 +32,12 @@ export default function App() {
         <Route path="/confirmYoungTicket" component={ConfirmYoungTicket} />
         <Route path="/confirmAdultTicket" component={ConfirmAdultTicket} />
         <Route path="/dashboard" component={Dashboard} />
+        <Route path="/areaHub" exact component={AreaHub} />
+        <Route path="/areaHub/Cubism" exact component={Cubism} />
+        <Route path="/areaHub/Renaissance" exact component={Renaissance} />
+        <Route path="/areaHub/Baroque" exact component={Baroque} />
+        <Route path="/areaHub/Impressionism" exact component={Impressionism} />
+        <Route path="/areaHub/Renaissance/artwork" component={Artwork} />
       </div>
     </Router>
   );

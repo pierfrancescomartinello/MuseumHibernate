@@ -13,6 +13,7 @@ import ConfirmationNumberIcon from "@material-ui/icons/ConfirmationNumber";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginBottom: "50px"
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -62,9 +63,9 @@ export default function ButtonAppBar() {
             <Button
               color="default"
               type="button"
-              style={{ color: "#FFFFFF", fontWeight: "bold" }}
+              style={{ color: "#FFFFFF", fontWeight: "bold"}}
             >
-              Login
+              Log in
             </Button>
           </Link>
           <Link to="/signup">
@@ -73,7 +74,7 @@ export default function ButtonAppBar() {
               type="button"
               style={{ color: "#FFFFFF", fontWeight: "bold" }}
             >
-              Signup
+              Sign up
             </Button>
           </Link>
         </Toolbar>

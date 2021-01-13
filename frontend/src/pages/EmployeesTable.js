@@ -97,10 +97,10 @@ export default function EmployeesTable() {
             <TableBody>
               {data?.map((row) => (
                 <TableRow key={row.employeeId}>
-                  <TableCell align="center">{row.employeeId}</TableCell>
-                  <TableCell align="center">{row.name}</TableCell>
-                  <TableCell align="center">{row.surname}</TableCell>
-                  <TableCell align="center">{row.dob}</TableCell>
+                  <TableCell align="center">{row.purchaseDate}</TableCell>
+                  <TableCell align="center">{row.visitDate}</TableCell>
+                  <TableCell align="center">{row.ticketType}</TableCell>
+                  <TableCell align="center">{row.ticketPrice}</TableCell>
                   <TableCell align="center">{row.dateOfSignup}</TableCell>
                   <TableCell align="center">{row.salary}</TableCell>
                   <TableCell align="center">{row.workingHours}</TableCell>

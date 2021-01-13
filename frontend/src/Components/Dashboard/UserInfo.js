@@ -17,6 +17,7 @@ export default function UserInfo(props) {
     setName(name)
   })
 
+
   let surnameURL = fetch("/login/userInfo/surname?email=" + email, {method: "GET"});
 
   surnameURL.then(surnameURL => {

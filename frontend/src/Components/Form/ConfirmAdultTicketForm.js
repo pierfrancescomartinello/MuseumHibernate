@@ -111,6 +111,7 @@ const TextFieldEmail = () => {
         fullWidth
         variant="contained"
         color="primary"
+        style={{ color: "#FFFFFF", backgroundColor: "#d18570", fontWeight: "bold" }}
         //  className={classes.submit}
         onClick={handleClick}
       >

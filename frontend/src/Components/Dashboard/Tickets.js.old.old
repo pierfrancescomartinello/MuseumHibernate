@@ -1,0 +1,97 @@
+import React, {useState} from 'react';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import IconButton from '@material-ui/core/IconButton';
+import { Link } from "react-router-dom";
+
+export default function Orders() {
+  const [data, upDateData] = React.useState([]);
+  const [firstLoad, setLoad] = React.useState(true);
+  const [visitorId, setVisitorId] = useState("");
+  let isLoading = true;
+
+  let email = (window.location.pathname.replace("/dashboard/", ""));
+  let visitorIdURL = "/login/userInfo/visitorId?email=" + email;
+
+  async function getVisitorId() {
+    let response = await fetch(visitorIdURL);
+    let body = await response.json();
+    setVisitorId(body[0]);
+  }
+
+  getVisitorId()
+  console.log(visitorId)
+
+  let ticketsURL = "/login/tickets" + visitorId;
+  console.log(ticketsURL)
+
+  async function sampleFunc() {
+    let response = await fetch(ticketsURL);
+    let body = await response.json();
+    upDateData(body);
+  }
+
+  if (firstLoad) {
+    sampleFunc();
+    setLoad(false);
+  }
+ 
+  if (data.length > 0) isLoading = false;
+
+  /*
+  let email = (window.location.pathname.replace("/dashboard/", ""));
+  let visitorIdURL = fetch("/login/userInfo/visitorId?email=" + email);
+  let tickets = [];
+
+  visitorIdURL.then(visitorIdURL => {
+    return visitorIdURL.json();
+  }).then(visitorIdP => {
+    const visitorId = visitorIdP[0]
+    setVisitorId(visitorId)
+  }) */
+
+  return (
+    <React.Fragment>
+      <Typography component="h3" variant="h5" style={{ color: "#c16b53", fontWeight: "bold", paddingLeft: "7px" }}>
+        Your tickets
+      </Typography>
+      <Table size="small" style={{maxWidth: "100%"}}>
+        <TableHead>
+          <TableRow>
+            <TableCell><b>Purchase date</b></TableCell>
+            <TableCell><b>Visit date</b></TableCell>
+            <TableCell><b>Ticket type</b></TableCell>
+            <TableCell><b>Ticket price</b></TableCell>
+            <TableCell align="right" style={{paddingLeft: "0px"}}><b>Use</b></TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map((ticket) => (
+            <TableRow>
+              <TableCell align="center">{ticket.purchaseDate}</TableCell>
+              <TableCell align="center">{ticket.visitDate}</TableCell>
+              <TableCell align="center">{ticket.ticketType}</TableCell>
+              <TableCell align="center">{ticket.ticketPrice}</TableCell>
+              <TableCell align="center">{ticket.isUsable}</TableCell>
+              <TableCell align="left">
+                <IconButton
+                    disabled = {!ticket.isUsable}
+                    onClick = {console.log("reminder")} // reminder
+                    component={Link}
+                    to="/areaHub">
+                  <AccountBalanceIcon />
+                </IconButton>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+
+    </React.Fragment>
+  );
+}

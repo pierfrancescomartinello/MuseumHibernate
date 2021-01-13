@@ -34,7 +34,7 @@ public class Ticket {
 	private boolean isUsable;
 	
 	@Column(name="visitor")
-	private int visitor;
+	private Integer visitor;
 	
 	@Column(name="ticketprice")
 	private float ticketPrice;

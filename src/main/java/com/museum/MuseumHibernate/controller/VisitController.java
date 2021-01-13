@@ -24,14 +24,16 @@ public class VisitController {
 		return new ModelAndView("redirect:/api/area");
 	}
 	
+	/*
 	@GetMapping("/visit/visitor={visitor}/useTicket")
 	public ModelAndView viewTicket(@PathVariable int visitor) {
 		return new ModelAndView("redirect:/api/ticket/visitor={visitor}/usable");
 	}
+	*/
 	
-	@PostMapping("/visit/visitor={visitor}/useTicket/ticketId={ticketId}")
-	public boolean viewTicket(@PathVariable int visitor, @PathVariable int ticketId) {
-		return TicketQueryHandler.startVisitQuery(ticketId, visitor);
+	@GetMapping("/useTicket/ticketId={ticketId}")
+	public boolean viewTicket(@PathVariable int ticketId) {
+		return TicketQueryHandler.startVisitQuery(ticketId, 0);
 	}
 	
 	@GetMapping("/visit/area={areaId}")

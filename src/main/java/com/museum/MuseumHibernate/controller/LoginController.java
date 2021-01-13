@@ -2,7 +2,11 @@ package com.museum.MuseumHibernate.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.museum.MuseumHibernate.model.Employee;
+import com.museum.MuseumHibernate.model.Ticket;
+
 import java.io.UnsupportedEncodingException;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -37,6 +41,8 @@ public class LoginController {
 		return we;
 	}
 	*/
+	
+	/* LOGIN QUERIES */
 	
 	@GetMapping("/login")
 	public @ResponseBody boolean loginQuery (@RequestParam("email") String email, @RequestParam("password") String password) throws UnsupportedEncodingException {
@@ -122,5 +128,106 @@ public class LoginController {
 		if ((list.size()) == 1)
 			return list;
 		return null;
+	}
+	
+	/* TICKET QUERIES */
+	@GetMapping("/login/tickets")
+	public @ResponseBody List<Ticket> ticketInfoQuery (@RequestParam("visitorId") int visitorId) {
+		Session currSession = entityManager.unwrap(Session.class);
+		Query<Ticket> query = currSession.createQuery("from Ticket where visitor = " + visitorId, Ticket.class); 
+		List<Ticket> list = query.getResultList();	
+		
+		return list;
+	}
+	
+	/* QUERY DE JESUS */
+	@GetMapping("/login/ticketInfo/ticketOf")
+	public @ResponseBody List<Ticket> ticketOf (@RequestParam("email") String email) {
+		Session currSession = entityManager.unwrap(Session.class);
+		
+		@SuppressWarnings("unchecked")
+		Query<Ticket> query = currSession.createNativeQuery(
+				"select purchaseDate, visitDate, ticketType, ticketPrice, isUsable, visitor, ticketId from account, visitor, ticket \r\n"
+				+ "where account.email = visitor.email and visitor.visitorId = ticket.visitor and account.email = \"" + email + "\"");
+		
+		List<Ticket> list = query.getResultList();
+		
+		return list;
+	}
+	
+	
+	@GetMapping("/login/ticketInfo/purchaseDate")
+	public @ResponseBody List<Date> ticketInfoQueryPurchaseDate (@RequestParam("visitorId") int visitorId) {
+		Session currSession = entityManager.unwrap(Session.class);
+		
+		@SuppressWarnings("unchecked")
+		Query<Date> query = currSession.createNativeQuery(
+				"SELECT purchaseDate "
+				+ "FROM ticket "
+				+ "WHERE visitor =" + visitorId);
+		
+		List<Date> list = query.getResultList();
+		
+		return list;
+	}
+	
+	@GetMapping("/login/ticketInfo/visitDate")
+	public @ResponseBody List<Date> ticketInfoQueryVisitDate (@RequestParam("visitorId") int visitorId) {
+		Session currSession = entityManager.unwrap(Session.class);
+		
+		@SuppressWarnings("unchecked")
+		Query<Date> query = currSession.createNativeQuery(
+				"SELECT visitDate "
+				+ "FROM ticket "
+				+ "WHERE visitor =" + visitorId);
+		
+		List<Date> list = query.getResultList();
+		
+		return list;
+	}
+	
+	@GetMapping("/login/ticketInfo/ticketType")
+	public @ResponseBody List<String> ticketInfoQueryTicketType (@RequestParam("visitorId") int visitorId) {
+		Session currSession = entityManager.unwrap(Session.class);
+		
+		@SuppressWarnings("unchecked")
+		Query<String> query = currSession.createNativeQuery(
+				"SELECT ticketType "
+				+ "FROM ticket "
+				+ "WHERE visitor =" + visitorId);
+		
+		List<String> list = query.getResultList();
+		
+		return list;
+	}
+	
+	@GetMapping("/login/ticketInfo/ticketPrice")
+	public @ResponseBody List<Float> ticketInfoQueryTicketPrice (@RequestParam("visitorId") int visitorId) {
+		Session currSession = entityManager.unwrap(Session.class);
+		
+		@SuppressWarnings("unchecked")
+		Query<Float> query = currSession.createNativeQuery(
+				"SELECT ticketPrice "
+				+ "FROM ticket "
+				+ "WHERE visitor =" + visitorId);
+		
+		List<Float> list = query.getResultList();
+		
+		return list;
+	}
+	
+	@GetMapping("/login/ticketInfo/isUsable")
+	public @ResponseBody List<Boolean> ticketInfoQueryTicketIsUsable (@RequestParam("visitorId") int visitorId) {
+		Session currSession = entityManager.unwrap(Session.class);
+		
+		@SuppressWarnings("unchecked")
+		Query<Boolean> query = currSession.createNativeQuery(
+				"SELECT isusable "
+				+ "FROM ticket "
+				+ "WHERE visitor =" + visitorId);
+		
+		List<Boolean> list = query.getResultList();
+		
+		return list;
 	}
 }

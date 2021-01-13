@@ -27,6 +27,7 @@ const TextFieldEmail = () => {
     <form>
       <TextField
         variant="outlined"
+        color="secondary"
         margin="normal"
         fullWidth
         name="email"
@@ -41,6 +42,7 @@ const TextFieldEmail = () => {
       />
       <TextField
         variant="outlined"
+        color="secondary"
         margin="normal"
         fullWidth
         name="password"
@@ -57,6 +59,7 @@ const TextFieldEmail = () => {
       <div style={{ padding: "1.5%" }}></div>
       <Button
         fullWidth
+        style={{ color: "#FFFFFF", backgroundColor: "#d18570", fontWeight: "bold" }}
         variant="contained"
         color="primary"
         //  className={classes.submit}

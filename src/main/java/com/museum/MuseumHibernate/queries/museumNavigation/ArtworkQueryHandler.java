@@ -1,6 +1,6 @@
 package com.museum.MuseumHibernate.queries.museumNavigation;
 
-/*
+
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -16,13 +16,13 @@ import java.sql.Statement;
 
 import javax.imageio.ImageIO;
 
-import com.museum.MuseumHibernate.modal.Artwork;
+import com.museum.MuseumHibernate.model.Artwork;
 
 
 public class ArtworkQueryHandler {
 	
-	
-	public boolean addImage(Artwork toAdd) throws IOException {	
+	/*
+	public static boolean addImage(Artwork toAdd) throws IOException {	
 		try {
 			String url = "jdbc:mysql://localhost/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
             Connection conn = DriverManager.getConnection(url, "root", "password");
@@ -33,7 +33,6 @@ public class ArtworkQueryHandler {
             
             InputStream image = BIToIS(toAdd.image);
             InputStream miniature = BIToIS(toAdd.miniature);
-             
             
             statement.setBlob(1, image);
             statement.setBlob(2, miniature);
@@ -45,11 +44,12 @@ public class ArtworkQueryHandler {
         } catch (SQLException ex) {
             ex.printStackTrace();
             return true;
-        }
+		}
         
 	}
+	 */
 	
-	public Artwork showImage(int artworkId) throws IOException {
+	public static Artwork showImage(int artworkId) throws IOException {
 		try {
 			String url = "jdbc:mysql://localhost/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 			Connection conn = DriverManager.getConnection(url, "root", "password");
@@ -72,6 +72,7 @@ public class ArtworkQueryHandler {
 		InputStream is = new ByteArrayInputStream(bytes);
 		return is;
 	}
+	
 	//from Blob To BufferedImage
 	public static BufferedImage BToBI(Blob image) throws SQLException, IOException {
 		InputStream in = image.getBinaryStream();  
@@ -79,4 +80,4 @@ public class ArtworkQueryHandler {
 		return toReturn;
 	}
 }
- */
+ 
