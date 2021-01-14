@@ -1,7 +1,5 @@
 package com.museum.MuseumHibernate.model;
 
-import java.awt.image.BufferedImage;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

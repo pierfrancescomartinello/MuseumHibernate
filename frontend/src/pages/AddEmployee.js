@@ -1,7 +1,6 @@
 import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
@@ -39,13 +38,17 @@ export default function AddEmployee() {
   const classes = useStyles();
   const [firstLoad, setLoad] = React.useState(true);
 
-  const [firstName, setFirstName] = React.useState("");
-  const [lastName, setLastName] = React.useState("");
-  const [description, setDescription] = React.useState("");
+  const [name, setFirstName] = React.useState("");
+  const [surname, setLastName] = React.useState("");
+  const [dob, setDob] = React.useState("");
+  const [salary, setSalary] = React.useState("");
+  const [workingHours, setWorkingHours] = React.useState("");
 
-  const handleNameChange = (event) => setFirstName(event.target.value);
-  const handlDepartmentChange = (event) => setLastName(event.target.value);
-  const handleGenderChange = (event) => setDescription(event.target.value);
+  const handleName = (event) => setFirstName(event.target.value);
+  const handleSurname = (event) => setLastName(event.target.value);
+  const handleDobChange = (event) => setDob(event.target.value);
+  const handleSalary = (event) => setSalary(event.target.value);
+  const handleWorkingHours = (event) => setWorkingHours(event.target.value);
 
   async function sampleFunc(toInput) {
     // eslint-disable-next-line
@@ -65,23 +68,25 @@ export default function AddEmployee() {
   }
 
   const handleSubmit = (variables) => {
-    const toInput = { firstName, lastName, description };
+    const toInput = { name, surname, dob, salary, workingHours };
     sampleFunc(toInput);
+
     setFirstName("");
     setLastName("");
-    setDescription("");
+    setDob("");
+    setSalary("");
+    setWorkingHours("");
     console.log(toInput);
   };
 
   if (firstLoad) {
-    // sampleFunc();
+    sampleFunc();
     setLoad(false);
   }
 
   return (
     <Container component="main" maxWidth="xs" style={{ marginTop: 100 }}>
-      <CssBaseline />
-      <div className={classes.paper}>
+      <div className={classes.paper} >
         <Avatar className={classes.avatar}>
           <GroupIcon />
         </Avatar>
@@ -91,43 +96,66 @@ export default function AddEmployee() {
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
-              <TextField
+            <TextField
                 variant="outlined"
-                required
                 fullWidth
                 id="name"
-                value={firstName}
+                value={name}
                 label="First name"
                 name="name"
                 autoComplete="name"
-                onChange={handleNameChange}
+                onChange={handleName}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="lastName"
-                name="lastName"
+                autoComplete="surname"
+                name="surname"
                 variant="outlined"
-                required
                 fullWidth
-                value={lastName}
-                id="lastName"
+                value={surname}
+                id="surname"
                 label="Last name"
-                onChange={handlDepartmentChange}
+                onChange={handleSurname}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                autoComplete="dob"
+                name="dob"
                 variant="outlined"
-                required
                 fullWidth
-                id="description"
-                value={description}
-                label="Description"
-                name="description"
-                autoComplete="description"
-                onChange={handleGenderChange}
+                value={dob}
+                id="dob"
+                label="Date of birth"
+                onChange={handleDobChange}
               />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                id="salary"
+                value={salary}
+                label="Salary"
+                name="Salary"
+                autoComplete="Salary"
+                onChange={handleSalary}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                id="workingHours"
+                value={workingHours}
+                label="Working Hours"
+                name="workingHours"
+                autoComplete="workingHours"
+                onChange={handleWorkingHours}
+              />
+            </Grid>
+            <Grid item xs={12}>
             </Grid>
           </Grid>
           <Button
@@ -138,13 +166,21 @@ export default function AddEmployee() {
             //preventDefault
             className={classes.submit}
             onClick={handleSubmit}
+            style={{ color: "#FFFFFF", backgroundColor: "#d18570", fontWeight: "bold" }}
           >
             Save
           </Button>
 
           <Grid container justify="center">
             <Grid item>
-              <Link to="/employees">View Employee Records</Link>
+              <Button
+                style={{ color: "#FFFFFF", backgroundColor: "#d18570", fontWeight: "bold" }}
+                color="primary" 
+                variant="contained" 
+                component={Link} 
+                to="/employees">
+                  VIEW EMPLOYEES
+                </Button>
             </Grid>
           </Grid>
         </form>

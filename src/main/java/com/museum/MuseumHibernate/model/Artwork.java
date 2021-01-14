@@ -27,11 +27,6 @@ public class Artwork {
 		this.simpleDescription = simpleDescription;
 		this.completeDescription = completeDescription;
 		this.areaId = areaId;
-		
-		/*
-		this.image = image;
-		this.miniature = miniature;
-		*/
 	}
 	
 	@Id
@@ -64,15 +59,4 @@ public class Artwork {
 	@Lob
 	@Column(name="miniatura", columnDefinition="BLOB")
 	public byte[] miniature;
-
-	/*
-		da integrare tramite richieste POST e DELETE
-	public void addArtwork(Artwork artwork){
-		this.artworks.add(artwork);
-	}
-	
-	public void deleteArtwork(Artwork artwork){
-		this.artworks.remove(artwork);
-	}
-	*/
 }

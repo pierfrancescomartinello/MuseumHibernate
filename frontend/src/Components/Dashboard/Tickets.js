@@ -49,7 +49,7 @@ export default function Tickets() {
             <TableCell><b>Visit date</b></TableCell>
             <TableCell><b>Ticket type</b></TableCell>
             <TableCell><b>Ticket price</b></TableCell>
-            <TableCell align="right" style={{paddingLeft: "0px"}}><b>Use</b></TableCell>
+            <TableCell align="right" style={{paddingLeft: "0px"}}>{/*blank*/}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

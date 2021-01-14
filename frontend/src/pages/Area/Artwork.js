@@ -1,17 +1,13 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import AreaHubBG from "../../img/areahub.png";
-import { shadows } from '@material-ui/system';
 import Fab from '@material-ui/core/Fab';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import AppbarLoggedIn from "../../components/AppbarLoggedIn";
@@ -110,12 +106,12 @@ export default function Artwork() {
 			>
 			<CardMedia
 				className={classes.cardMedia}
-				component={() => (<img src={"data:image/png;base64," + data.image} />)}
+				component={() => (<img alt="an artwork" src={"data:image/png;base64," + data.image} />)}
 			/>
 				<Card className={classes.card} style={{height: "300px" , width: "1000px"}} elevation={24}>
 					<CardContent className={classes.cardContent}>
 						<Typography gutterBottom variant="h5" component="h2">
-							Made: {data.date} <br></br>
+							Made: {data.date} <br></br><br></br>
 							{data.simpleDescription} <br></br>
 							{data.completeDescription}
 						</Typography>

@@ -9,7 +9,6 @@ import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,35 +19,7 @@ import com.museum.MuseumHibernate.model.Artwork;
 
 
 public class ArtworkQueryHandler {
-	
-	/*
-	public static boolean addImage(Artwork toAdd) throws IOException {	
-		try {
-			String url = "jdbc:mysql://localhost/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-            Connection conn = DriverManager.getConnection(url, "root", "password");
- 
-            String sql = "Insert into artwork (name, author, submissionDate, simpleDescription, completeDescription, areaId, immagine, miniatura) values (\"" + toAdd.name + "\", \"" + toAdd.author + "\", \'" + toAdd.date + "\', \"" +toAdd.simpleDescription+ "\", \"" + toAdd.completeDescription + "\" , " + toAdd.areaId + ", ?, ?) ;";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            
-            
-            InputStream image = BIToIS(toAdd.image);
-            InputStream miniature = BIToIS(toAdd.miniature);
-            
-            statement.setBlob(1, image);
-            statement.setBlob(2, miniature);
-            int row = statement.executeUpdate();
-            if(row<=0)
-            	return false;
-            conn.close();
-            return true;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            return true;
-		}
-        
-	}
-	 */
-	
+
 	public static Artwork showImage(int artworkId) throws IOException {
 		try {
 			String url = "jdbc:mysql://localhost/museum?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";

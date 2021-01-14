@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import AreaHubBG from "../../img/areahub.png";
-import { render } from '@testing-library/react';
 import Fab from '@material-ui/core/Fab';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import AppbarLoggedIn from "../../components/AppbarLoggedIn";

@@ -7,7 +7,6 @@ import IconButton from "@material-ui/core/IconButton";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import HomeIcon from "@material-ui/icons/Home";
-import SettingsIcon from "@material-ui/icons/Settings";
 import ConfirmationNumberIcon from "@material-ui/icons/ConfirmationNumber";
 
 const useStyles = makeStyles((theme) => ({
@@ -48,6 +47,8 @@ export default function ButtonAppBar() {
           >
             <ConfirmationNumberIcon />
           </IconButton>
+          <span style={{"fontSize": "23px", "marginTop":"-3px", "paddingLeft": "5px"}}><b>Museum</b></span>
+          {/*
           <IconButton
             edge="start"
             color="inherit"
@@ -57,7 +58,7 @@ export default function ButtonAppBar() {
           >
             <SettingsIcon />
           </IconButton>
-
+          */}
           <Typography variant="h6" className={classes.title}></Typography>
           <Link to="/login">
             <Button

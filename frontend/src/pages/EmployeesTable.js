@@ -8,7 +8,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Avatar from "@material-ui/core/Avatar";
-import GroupIcon from "@material-ui/icons/Group";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -29,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     margin: `10px`,
     height: "100%",
     width: "99%",
-    marginTop: theme.spacing(7),
+    marginTop: "100px",
   },
   link: {
     color: "rgba(0,0,0,0.65)",
@@ -65,10 +64,10 @@ export default function EmployeesTable() {
   return (
     <div className={classes.paper}>
       <Avatar className={classes.avatar}>
-        <GroupIcon />
+        M
       </Avatar>
-      <Typography component="h1" variant="h5">
-        Employee Directory
+      <Typography component="h1" variant="h5" style={{marginBottom: "15px"}}>
+        Museum Employees
       </Typography>
 
       {isLoading ? (
@@ -85,39 +84,29 @@ export default function EmployeesTable() {
                 <TableCell align="center">Name</TableCell>
                 <TableCell align="center">Surname</TableCell>
                 <TableCell align="center">Date of birth</TableCell>
-                <TableCell align="center">Date of signup</TableCell>
                 <TableCell align="center">Salary</TableCell>
                 <TableCell align="center">Working hours</TableCell>
-                <TableCell align="center">Email</TableCell>
-                <TableCell align="center">Curator</TableCell>
-                <TableCell align="center">Director</TableCell>
-                <TableCell align="center">Salesperson</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {data?.map((row) => (
                 <TableRow key={row.employeeId}>
-                  <TableCell align="center">{row.purchaseDate}</TableCell>
-                  <TableCell align="center">{row.visitDate}</TableCell>
-                  <TableCell align="center">{row.ticketType}</TableCell>
-                  <TableCell align="center">{row.ticketPrice}</TableCell>
-                  <TableCell align="center">{row.dateOfSignup}</TableCell>
+                  <TableCell align="center">{row.employeeId}</TableCell>
+                  <TableCell align="center">{row.name}</TableCell>
+                  <TableCell align="center">{row.surname}</TableCell>
+                  <TableCell align="center">{row.dob}</TableCell>
                   <TableCell align="center">{row.salary}</TableCell>
                   <TableCell align="center">{row.workingHours}</TableCell>
-                  <TableCell align="center">{row.email}</TableCell>
-                  <TableCell align="center">{row.isCurator}</TableCell>
-                  <TableCell align="center">{row.isDirector}</TableCell>
-                  <TableCell align="center">{row.isSalesperson}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
       )}
-      <Link className={classes.link} to="/">
+      <Link className={classes.link} to="/addemployees">
         {" "}
-        <Typography align="left">
-          &#x2190; Head back to save data
+        <Typography align="left" style={{marginTop: "10px"}}>
+          &#x2190; Back
         </Typography>{" "}
       </Link>
     </div>

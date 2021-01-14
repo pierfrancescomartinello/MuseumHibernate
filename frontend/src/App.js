@@ -37,7 +37,10 @@ export default function App() {
         <Route path="/areaHub/Renaissance" exact component={Renaissance} />
         <Route path="/areaHub/Baroque" exact component={Baroque} />
         <Route path="/areaHub/Impressionism" exact component={Impressionism} />
+        <Route path="/areaHub/Cubism/artwork" component={Artwork} />
         <Route path="/areaHub/Renaissance/artwork" component={Artwork} />
+        <Route path="/areaHub/Baroque/artwork" component={Artwork} />
+        <Route path="/areaHub/Impressionism/artwork" component={Artwork} />
       </div>
     </Router>
   );

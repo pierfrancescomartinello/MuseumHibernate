@@ -2,7 +2,6 @@ package com.museum.MuseumHibernate.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.museum.MuseumHibernate.model.Employee;
 import com.museum.MuseumHibernate.model.Ticket;
 
 import java.io.UnsupportedEncodingException;
@@ -25,30 +24,10 @@ public class LoginController {
 	
 	@Autowired
 	private EntityManager entityManager;
-	
-	/*
-	@RequestMapping(value = "/login", headers = {"email=email" , "password=password"}, method = RequestMethod.POST)
-	@ResponseBody
-	public List<String> loginQuery(@PathVariable("email") String email, @PathVariable("password") String password) throws UnsupportedEncodingException{
-		String queryEmail = URLDecoder.decode(email, "utf8");
-		if (AccountQueryHandler.checkEmailQuery(queryEmail)){
-			if (AccountQueryHandler.getPasswordQuery(queryEmail).equals(password)){
-					AccountQueryHandler.modifyIsLoggedInStateQuery(queryEmail, 1);
-			}
-		}
-		
-		List<String> we = new ArrayList<String>();
-		return we;
-	}
-	*/
-	
 	/* LOGIN QUERIES */
 	
 	@GetMapping("/login")
-	public @ResponseBody boolean loginQuery (@RequestParam("email") String email, @RequestParam("password") String password) throws UnsupportedEncodingException {
-		/*String email = "we";
-		String password = "we";*/
-		
+	public @ResponseBody boolean loginQuery (@RequestParam("email") String email, @RequestParam("password") String password) throws UnsupportedEncodingException {		
 		Session currSession = entityManager.unwrap(Session.class);
 		@SuppressWarnings("unchecked")
 		Query<String> query = currSession.createNativeQuery(
@@ -64,9 +43,6 @@ public class LoginController {
 	// useful to get a visitorId relative to a certain email. 
 	@GetMapping("/login/visitorId")
 	public @ResponseBody List<Integer> visitorIdQuery (@RequestParam("email") String email) {
-		/*String email = "we";
-		String password = "we";*/
-		
 		Session currSession = entityManager.unwrap(Session.class);
 		@SuppressWarnings("unchecked")
 		Query<Integer> query = currSession.createNativeQuery(

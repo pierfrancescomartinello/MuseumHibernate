@@ -17,8 +17,14 @@ const TextFieldEmail = () => {
         if (json === false) {
           console.log("Wrong email and / or password, please try again.");
           alert("Wrong email and / or password, please try again.");
-        } else {
-          history.push("/dashboard/" + email);  
+        } 
+        else {
+          if (email === "admin" && password === "adminadmin") {
+            console.log("admin")
+            history.push("/addemployees/");  
+          } else {
+            history.push("/dashboard/" + email);  
+          }
         }
       });
   };

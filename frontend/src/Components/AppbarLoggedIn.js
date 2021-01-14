@@ -7,7 +7,6 @@ import IconButton from "@material-ui/core/IconButton";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import HomeIcon from "@material-ui/icons/Home";
-import SettingsIcon from "@material-ui/icons/Settings";
 import ConfirmationNumberIcon from "@material-ui/icons/ConfirmationNumber";
 
 const useStyles = makeStyles((theme) => ({
@@ -44,7 +43,7 @@ export default function AppbarLoggedIn() {
           >
             <ConfirmationNumberIcon />
           </IconButton>
-          <IconButton
+          {/*<IconButton
             edge="start"
             color="inherit"
             aria-label="menu"
@@ -52,7 +51,7 @@ export default function AppbarLoggedIn() {
             to="/addemployees"
           >
             <SettingsIcon />
-          </IconButton>
+          </IconButton>*/}
 
           <Typography variant="h6" className={classes.title}></Typography>
             <Button
